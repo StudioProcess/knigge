@@ -1,0 +1,39 @@
+// === ABOUT OVERLAY ===
+
+#about {
+  position: fixed;
+	background: $bg-website;
+	bottom: 0;
+	right: 0;
+	height: 100%;
+	width: 100%;
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transition: visibility 0.35s linear, opacity 0.35s linear;
+	transition: visibility 0.35s linear, opacity 0.35s linear;
+	overflow: auto;
+  z-index: 999;
+}
+
+#about.about-active {
+  opacity: 1;
+	visibility: visible;
+  -webkit-transition: visibility 0.35s linear, opacity 0.35s linear;
+  transition: visibility 0.35s linear, opacity 0.35s linear;
+}
+
+.about-close-wrapper {
+  font-size: 16px;
+  line-height: 16px;
+}
+
+.about-close {
+  margin-top: 12px;
+  margin-right: 5px;
+}
+
+@media (max-width: 767px) {
+  .about-close {
+    margin-right: 0;
+  }
+}

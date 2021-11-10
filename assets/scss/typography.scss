@@ -1,0 +1,30 @@
+// === TYPOGRAPHY ===
+
+html, body {
+  font-size: 30px;
+  line-height: 39px;
+}
+
+h1, .h1 {
+  font-size: 75px;
+  line-height: 75px;
+}
+h2, .h2 {
+  font-size: 45px;
+  line-height: 58px;
+}
+
+@media (max-width: 767px) {
+  html, body {
+    font-size: 20px;
+    line-height: 29px;
+  }
+  h1, .h1 {
+    font-size: 35px;
+    line-height: 45px;
+  }
+  h2, .h2 {
+    font-size: 30px;
+    line-height: 39px;
+  }
+}

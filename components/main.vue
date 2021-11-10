@@ -1,0 +1,371 @@
+<template>
+  <div v-if="loaded">
+    <!-- HEADER -->
+    <header role="navigation">
+      <b-container fluid="xxl">
+        <b-row>
+          <b-col>
+            <button @click="scrollToTop">
+              <img src="knigge_icon.svg" height="39">
+            </button>
+          </b-col>
+          <b-col class="text-center">
+            <button
+              v-if="!presentation"
+              id="recording-indicator"
+              :class="isRecording ? 'active' : 'inactive'"
+              @click="toggleRecordingState()"
+            />
+            <b-popover
+              v-if="!presentation"
+              id="recording-indicator-info"
+              target="recording-indicator"
+              triggers="manual"
+              placement="bottom"
+              container="header"
+              :show.sync="recordingPopoverVisible"
+            >
+              <p><em>Bevor es losgeht...</em></p>
+              <p>Wir möchten deine Eingaben gerne aufzeichnen. Solltest du damit nicht einverstanden sein, kannst du jederzeit auf den <span class="recording-active">&#9679;</span> roten Kreis klicken. Sobald sich die Farbe von <span class="recording-active">&#9679;</span> rot auf <span class="recording-inactive">&#9679;</span> grau verändert hat, ist die Aufnahme gestoppt.</p>
+              <p class="mb-0">
+                Vielen Dank und viel Spaß!
+              </p>
+              <button class="popover-close" @click="recordingPopoverVisible = false; setRecordingStateCookie(isRecording)">
+                <img src="close_icon.svg" height="28">
+              </button>
+            </b-popover>
+          </b-col>
+          <b-col class="text-right">
+            <button @click="showAbout = true">
+              <img src="info_icon.svg" height="39">
+            </button>
+          </b-col>
+        </b-row>
+      </b-container>
+    </header>
+    <!-- MAIN -->
+    <main role="main">
+      <section id="chat">
+        <b-container fluid="xxl">
+          <b-row>
+            <b-col>
+              <div class="chat-window">
+                <div style="height:10px" />
+              </div>
+            </b-col>
+          </b-row>
+        </b-container>
+      </section>
+      <div class="fadeout-border" />
+      <section id="chat-controls">
+        <b-container fluid="xxl">
+          <b-row>
+            <b-col class="text-right pr-0">
+              <input
+                v-model="chatInput"
+                type="text"
+                onblur="this.focus()"
+                autofocus
+                :disabled="chatEnded"
+                maxlength="1000"
+                @keyup.enter="sendUserMessage()"
+              >
+            </b-col>
+            <b-col cols="auto" class="pl-0">
+              <button v-if="chatEnded" class="chat-action-btn" @click="restartChat()">
+                <img src="restart_icon_blue.svg" height="100%">
+              </button>
+              <button v-else-if="!userAllowedToChat" class="chat-action-btn" disabled>
+                <img src="send_icon_disabled.svg" height="100%">
+              </button>
+              <button v-else class="chat-action-btn" @click="sendUserMessage()">
+                <img src="send_icon_black.svg" height="100%">
+              </button>
+            </b-col>
+          </b-row>
+        </b-container>
+      </section>
+    </main>
+    <!-- ABOUT OVERLAY -->
+    <aside id="about" :class="showAbout ? 'about-active': ''">
+      <b-container fluid="xxl">
+        <b-row>
+          <b-col class="text-right about-close-wrapper">
+            <button class="about-close" @click="showAbout = false">
+              <img src="close_icon.svg" height="28">
+            </button>
+          </b-col>
+        </b-row>
+        <b-row>
+          <b-col class="text-center pt-4 pb-5">
+            <h1>Informationen über das Projekt</h1>
+          </b-col>
+        </b-row>
+        <b-row class="bg-website-lighter">
+          <b-col lg="2" class="text-center px-8 px-lg-3 py-3">
+            <img src="knigge_icon.svg" width="100%" style="max-width:350px">
+          </b-col>
+          <b-col lg="9" class="py-3">
+            <h2 class="mb-4">
+              Wer ist Knigge?
+            </h2>
+            <p class="mr-3">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nulla arcu, cursus id tellus vitae, aliquam egestas erat. Nunc malesuada eu ipsum nec finibus. Integer posuere nisi erat, sed ornare leo aliquet non. Phasellus scelerisque elit eu felis finibus, non rhoncus ante venenatis. Sed sodales scelerisque tempor. Vivamus ut lorem vel arcu vehicula blandit eget ut ipsum. Donec mattis malesuada lacinia. Cras vel dapibus ipsum. Suspendisse potenti. Praesent a nisi augue. Aenean et accumsan lectus. Duis aliquam lobortis enim, non porttitor ipsum rhoncus ut. Donec in fringilla ligula, sed congue massa.
+            </p>
+          </b-col>
+        </b-row>
+      </b-container>
+    </aside>
+  </div>
+</template>
+
+<script>
+export default {
+  props: {
+    presentation: {
+      type: Boolean,
+      required: true
+    }
+  },
+  data () {
+    return {
+      // General
+      loaded: false,
+      chatEnded: false,
+      showAbout: false,
+      // Chatbot
+      chatInput: '',
+      botDelay: [1, 3],
+      botInitialMessages: [],
+      userAllowedToChat: false,
+      userHasSentFirstMessage: false,
+      // Logger
+      apiUrl: process.env.apiUrl,
+      loggerSessionToken: '',
+      loggerSessionExpired: false,
+      recordingPopoverVisible: true,
+      isRecording: false,
+      isRecordingCookieExpiration: 2,
+      noUserInteractionTimeout: 10000, // presentation mode: time since last user interaction before chat reset (in ms)
+      lastUserInteractionTimer: undefined,
+      lastUserInteractionElapsedTime: 0
+    }
+  },
+  watch: {
+    lastUserInteractionElapsedTime (val) {
+      if (val > this.noUserInteractionTimeout) {
+        this.stopUserInteractionTimer()
+        this.restartChat()
+      }
+    }
+  },
+  async mounted () {
+    this.loaded = true
+    this.recordingPopoverVisible = !this.$cookie.get('knigge_rec')
+    await this.getLoggerSession()
+    await this.getInitialMessages()
+    if (this.$props.presentation) {
+      this.startUserInteractionTimer()
+    }
+  },
+  destroyed () {
+    this.stopUserInteractionTimer()
+    this.$eliza.reset()
+  },
+  methods: {
+    // === CHAT METHODS ===
+    // Load script
+    async loadScript () {
+      const response = await fetch('example.mjs')
+      this.chatScript = await response.text()
+    },
+    // Get initial chatbot messages
+    async getInitialMessages () {
+      const initialMessagesCount = this.$eliza.get_options().fixed_initial + 1
+      await this.timeout(1000)
+      for (let i = 0; i < initialMessagesCount; i++) {
+        this.showMessage('', 'bot')
+        const message = await this.$eliza.get_initial_async(this.botDelay)
+        this.botInitialMessages.push('bot: ' + message)
+        this.replaceTypingIndicatorByMessage(message)
+      }
+      this.userAllowedToChat = true
+    },
+    // Get final chatbot messages
+    async getFinalMessages () {
+      const finalMessagesCount = this.$eliza.get_options().fixed_final
+      for (let i = 0; i < finalMessagesCount; i++) {
+        this.showMessage('', 'bot')
+        const message = await this.$eliza.get_final_async(this.botDelay)
+        await this.createLog(message, 'bot')
+        this.replaceTypingIndicatorByMessage(message)
+      }
+    },
+    // Get chatbot reply
+    async getReply (userMessage) {
+      this.userAllowedToChat = false
+      this.showMessage('', 'bot')
+      const reply = await this.$eliza.transform_async(userMessage, this.botDelay)
+      await this.createLog(reply, 'bot')
+      this.replaceTypingIndicatorByMessage(reply)
+      // Check if the last message ends the conversation
+      if (this.$eliza.is_quit()) {
+        this.chatEnded = true
+        await this.getFinalMessages()
+        if (this.$props.presentation) {
+          this.stopUserInteractionTimer()
+          await this.timeout(5000)
+          this.restartChat()
+        } else {
+          document.querySelector('input').value = ''
+          document.querySelector('input').classList.add('placeholder-blue')
+          document.querySelector('input').placeholder = window.innerWidth > 767 ? 'Gespräch beendet. Klicken für Neustart →' : 'Gespräch beendet. Neustart →'
+        }
+      } else {
+        this.userAllowedToChat = true
+      }
+    },
+    // Add new message to chat window
+    showMessage (message, origin) {
+      const chatWindow = document.querySelector('.chat-window')
+      const newMessage = document.createElement('div')
+      newMessage.classList.add('message', `message-${origin}`)
+      if (origin === 'bot') {
+        const typingIndicator = document.createElement('img')
+        typingIndicator.src = 'typing-indicator.svg'
+        newMessage.append(typingIndicator)
+      } else {
+        const newMessageParagraph = document.createElement('p')
+        const newMessageContent = document.createTextNode(message)
+        newMessageParagraph.append(newMessageContent)
+        newMessage.append(newMessageParagraph)
+      }
+      chatWindow.append(newMessage)
+      newMessage.scrollIntoView({ behavior: 'smooth' })
+    },
+    // Replace typing indicator by message
+    replaceTypingIndicatorByMessage (message) {
+      const lastMessage = document.querySelector('.chat-window').lastChild
+      lastMessage.removeChild(lastMessage.firstChild)
+      const newMessageParagraph = document.createElement('p')
+      const newMessageContent = document.createTextNode(message)
+      newMessageParagraph.append(newMessageContent)
+      lastMessage.append(newMessageParagraph)
+      lastMessage.scrollIntoView({ behavior: 'smooth' })
+    },
+    // Send user message
+    async sendUserMessage () {
+      const userMessage = this.chatInput
+      if (userMessage && this.userAllowedToChat) {
+        if (this.$props.presentation) {
+          this.stopUserInteractionTimer()
+          this.startUserInteractionTimer()
+        }
+        if (this.userHasSentFirstMessage) {
+          await this.createLog(userMessage, 'user')
+        } else {
+          await this.createLog(this.botInitialMessages.concat('you: ' + userMessage))
+          this.userHasSentFirstMessage = true
+          this.botInitialMessages = []
+        }
+        this.showMessage(userMessage, 'user')
+        this.chatInput = ''
+        if (!this.chatEnded) {
+          await this.getReply(userMessage)
+        }
+      }
+    },
+    // Restart chat
+    async restartChat () {
+      document.querySelector('input').placeholder = ''
+      document.querySelector('input').className = ''
+      this.clearChat()
+      this.userAllowedToChat = false
+      this.chatEnded = false
+      this.$eliza.reset()
+      await this.getLoggerSession()
+      await this.getInitialMessages()
+      if (this.$props.presentation) {
+        this.startUserInteractionTimer()
+      }
+    },
+    // Clear chat
+    clearChat () {
+      const chatWindow = document.querySelector('.chat-window')
+      if (chatWindow) {
+        while (chatWindow.firstChild) {
+          chatWindow.removeChild(chatWindow.lastChild)
+        }
+      }
+    },
+    // === LOGGING METHODS ===
+    // Toggle recording state
+    toggleRecordingState () {
+      if (!this.recordingPopoverVisible && this.loggerSessionToken.length) {
+        this.isRecording = !this.isRecording
+        this.setRecordingStateCookie(this.isRecording)
+      }
+    },
+    // Set recording state cookie
+    setRecordingStateCookie (val) {
+      this.$cookie.set('knigge_rec', val, this.isRecordingCookieExpiration)
+    },
+    // Get session token
+    async getLoggerSession () {
+      await this.$axios.$get(`${this.apiUrl}/session`).then((response) => {
+        this.loggerSessionToken = response.session
+        // eslint-disable-next-line
+        this.isRecording = this.$cookie.get('knigge_rec') && this.$cookie.get('knigge_rec') === 'false' ? false : true
+      }).catch((error) => {
+        if (error.response) {
+          // eslint-disable-next-line
+          console.log(error.response.status)
+        }
+      })
+    },
+    // Log message
+    async createLog (message, origin) {
+      if (this.isRecording && this.loggerSessionToken.length && message) {
+        let url = `${this.apiUrl}/log?session=${this.loggerSessionToken}&message=${encodeURIComponent((origin === 'bot' ? 'bot: ' : 'you: ') + message)}`
+        if (Array.isArray(message)) {
+          url = `${this.apiUrl}/log?session=${this.loggerSessionToken}&messages=${JSON.stringify(message)}`
+        }
+        await this.$axios.$get(url).catch((error) => {
+          if (error.response && error.response.status === 403) {
+            this.loggerSessionExpired = true
+            this.chatEnded = true
+            document.querySelector('input').classList.add('placeholder-blue')
+            document.querySelector('input').placeholder = window.innerWidth > 767 ? 'Session abgelaufen. Klicken für Neustart →' : 'Session abgelaufen. Neustart →'
+          }
+        })
+      }
+    },
+    // User interaction timer (for presentation mode)
+    startUserInteractionTimer () {
+      this.lastUserInteractionTimer = setInterval(() => {
+        this.lastUserInteractionElapsedTime += 1000
+      }, 1000)
+    },
+    stopUserInteractionTimer () {
+      clearInterval(this.lastUserInteractionTimer)
+      this.lastUserInteractionElapsedTime = 0
+    },
+    // === UTILITY METHODS ===
+    // Timeout as promise
+    timeout (ms) {
+      return new Promise(resolve => setTimeout(resolve, ms))
+    },
+    // Scroll to top (only chat history container)
+    scrollToTop () {
+      const firstMessage = document.querySelector('.chat-window').firstChild
+      if (firstMessage) {
+        firstMessage.scrollIntoView({ behavior: 'smooth' })
+      }
+    }
+    // scrollToBottomOfChatWindow () {
+    //   const chatContainer = document.getElementById('chat')
+    //   chatContainer.scrollTop = chatContainer.scrollHeight
+    // }
+  }
+}
+</script>

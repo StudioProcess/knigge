@@ -1,0 +1,65 @@
+// ===== MAIN APP STYLES =====
+
+@font-face {
+  font-family: 'Signifier';
+  font-weight: 400;
+  font-style: normal;
+  src: url('~assets/fonts/signifier-regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Signifier';
+  font-weight: 400;
+  font-style: italic;
+  src: url('~assets/fonts/signifier-regular-italic.woff2') format('woff2');
+}
+
+
+@import 'variables';
+
+@import 'bootstrap/scss/bootstrap.scss';
+@import 'bootstrap-vue/src/index.scss';
+
+@import 'grid';
+@import 'typography';
+
+
+// === GENERAL STYLES ===
+
+html, body {
+  margin: 0;
+  height: 100%;
+  max-height: 100%;
+  overflow: hidden;
+}
+
+.bg-website-lighter {
+  background-color: $bg-website-lighter;
+}
+
+button, input[type=submit], input[type=reset] {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.35s;
+}
+.page-enter,
+.page-leave-to {
+  opacity: 0;
+}
+
+
+@import 'header';
+
+@import 'chat';
+
+@import 'about';
+
