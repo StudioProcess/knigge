@@ -50,7 +50,8 @@ export default {
   build: {
   },
   env: {
-    apiUrl: process.env.API_URL || 'http://localhost:8010/proxy'
+    apiUrl: process.env.API_URL || 'http://localhost:8010/proxy',
+    elizaScript: 'scripts/2021-11-10_knigge.mjs'
   },
   loading: false
 }
