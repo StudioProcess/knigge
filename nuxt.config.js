@@ -53,5 +53,8 @@ export default {
     apiUrl: process.env.API_URL || 'http://localhost:8010/proxy',
     elizaScript: 'scripts/2021-11-10_knigge.mjs'
   },
+  router: {
+    base: process.env.BASE_URL || '/'
+  },
   loading: false
 }
