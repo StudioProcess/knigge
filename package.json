@@ -3,6 +3,10 @@
   "author": "Laurent Lang <hello@laurentlang.com> (https://www.laurentlang.com)",
   "version": "1.0.0",
   "private": true,
+  "engines": {
+    "node": "=14",
+    "npm": ">=7"
+  },
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
