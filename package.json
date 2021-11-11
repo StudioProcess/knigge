@@ -11,10 +11,10 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "API_URL=<API_URL> nuxt generate",
+    "generate": "API_URL=https://islandrabe.com/vorarbeit/knigge/api nuxt generate",
     "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
     "lint": "npm run lint:js",
-    "proxy": "lcp --proxyUrl <API_URL>"
+    "proxy": "lcp --proxyUrl https://islandrabe.com/vorarbeit/knigge/api"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",
