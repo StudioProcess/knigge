@@ -16,24 +16,6 @@
               :class="isRecording ? 'active' : 'inactive'"
               @click="toggleRecordingState()"
             />
-            <b-popover
-              v-if="!presentation"
-              id="recording-indicator-info"
-              target="recording-indicator"
-              triggers="manual"
-              placement="bottom"
-              container="body"
-              :show.sync="recordingPopoverVisible"
-            >
-              <p><em>Bevor es losgeht...</em></p>
-              <p>Wir möchten deine Eingaben gerne aufzeichnen. Solltest du damit nicht einverstanden sein, kannst du jederzeit auf den <span class="recording-active">&#9679;</span> roten Kreis klicken. Sobald sich die Farbe von <span class="recording-active">&#9679;</span> rot auf <span class="recording-inactive">&#9679;</span> grau verändert hat, ist die Aufnahme gestoppt.</p>
-              <p class="mb-0">
-                Vielen Dank und viel Spaß!
-              </p>
-              <button class="popover-close" @click="recordingPopoverVisible = false; setRecordingStateCookie(isRecording)">
-                <img src="close_icon.svg" height="28">
-              </button>
-            </b-popover>
           </b-col>
           <b-col class="text-right">
             <button @click="showAbout = true">
@@ -114,6 +96,17 @@
         </b-row>
       </b-container>
     </aside>
+    <!-- RECORDING INFO -->
+    <div v-if="!presentation && recordingPopoverVisible" id="recording-indicator-info">
+      <p><em>Bevor es losgeht...</em></p>
+      <p>Wir möchten deine Eingaben gerne aufzeichnen. Solltest du damit nicht einverstanden sein, kannst du jederzeit auf den <span class="recording-active">&#9679;</span> roten Kreis klicken. Sobald sich die Farbe von <span class="recording-active">&#9679;</span> rot auf <span class="recording-inactive">&#9679;</span> grau verändert hat, ist die Aufnahme gestoppt.</p>
+      <p class="mb-0">
+        Vielen Dank und viel Spaß!
+      </p>
+      <button class="popover-close" @click="recordingPopoverVisible = false; setRecordingStateCookie(isRecording)">
+        <img src="close_icon.svg" height="28">
+      </button>
+    </div>
   </div>
 </template>
 
