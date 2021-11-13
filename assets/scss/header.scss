@@ -1,10 +1,11 @@
 // === HEADER ===
 
 header {
-  font-size: 16px;
-  line-height: 16px;
+  top: 0;
   height: 58px;
   max-height: 58px;
+  font-size: 16px;
+  line-height: 16px;
   background: $bg-website;
 }
 
@@ -80,6 +81,18 @@ header .container-xxl {
 
 .bs-popover-bottom > .arrow::before, .bs-popover-auto[x-placement^=bottom] > .arrow::before {
   border-bottom-color: #ebebeb;
+}
+
+@media (max-width: 1199px) {
+  .popover {
+    max-width: 60%;
+  }
+}
+
+@media (max-width: 991px) {
+  .popover {
+    max-width: 80%;
+  }
 }
 
 @media (max-width: 767px) {
