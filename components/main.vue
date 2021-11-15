@@ -1,5 +1,5 @@
 <template>
-  <div v-if="loaded">
+  <div v-if="loaded" class="app-wrapper">
     <!-- HEADER -->
     <header role="navigation">
       <b-container fluid="xxl">
@@ -16,24 +16,6 @@
               :class="isRecording ? 'active' : 'inactive'"
               @click="toggleRecordingState()"
             />
-            <b-popover
-              v-if="!presentation"
-              id="recording-indicator-info"
-              target="recording-indicator"
-              triggers="manual"
-              placement="bottom"
-              container="header"
-              :show.sync="recordingPopoverVisible"
-            >
-              <p><em>Bevor es losgeht...</em></p>
-              <p>Wir möchten deine Eingaben gerne aufzeichnen. Solltest du damit nicht einverstanden sein, kannst du jederzeit auf den <span class="recording-active">&#9679;</span> roten Kreis klicken. Sobald sich die Farbe von <span class="recording-active">&#9679;</span> rot auf <span class="recording-inactive">&#9679;</span> grau verändert hat, ist die Aufnahme gestoppt.</p>
-              <p class="mb-0">
-                Vielen Dank und viel Spaß!
-              </p>
-              <button class="popover-close" @click="recordingPopoverVisible = false; setRecordingStateCookie(isRecording)">
-                <img src="close_icon.svg" height="28">
-              </button>
-            </b-popover>
           </b-col>
           <b-col class="text-right">
             <button @click="showAbout = true">
@@ -44,55 +26,53 @@
       </b-container>
     </header>
     <!-- MAIN -->
-    <main role="main">
-      <section id="chat">
-        <b-container fluid="xxl">
-          <b-row>
-            <b-col>
-              <div class="chat-window">
-                <div style="height:10px" />
-              </div>
-            </b-col>
-          </b-row>
-        </b-container>
-      </section>
-      <div class="fadeout-border" />
-      <section id="chat-controls">
-        <b-container fluid="xxl">
-          <b-row>
-            <b-col class="text-right pr-0">
-              <input
-                v-model="chatInput"
-                type="text"
-                onblur="this.focus()"
-                autofocus
-                :disabled="chatEnded"
-                maxlength="1000"
-                @keyup.enter="sendUserMessage()"
-              >
-            </b-col>
-            <b-col cols="auto" class="pl-0">
-              <button v-if="chatEnded" class="chat-action-btn" @click="restartChat()">
-                <img src="restart_icon_blue.svg" height="100%">
-              </button>
-              <button v-else-if="!userAllowedToChat" class="chat-action-btn" disabled>
-                <img src="send_icon_disabled.svg" height="100%">
-              </button>
-              <button v-else class="chat-action-btn" @click="sendUserMessage()">
-                <img src="send_icon_black.svg" height="100%">
-              </button>
-            </b-col>
-          </b-row>
-        </b-container>
-      </section>
-    </main>
+    <section id="chat">
+      <b-container fluid="xxl">
+        <b-row>
+          <b-col>
+            <div class="chat-window">
+              <div style="height:10px" />
+            </div>
+          </b-col>
+        </b-row>
+      </b-container>
+    </section>
+    <div class="fadeout-border" />
+    <section id="chat-controls">
+      <b-container fluid="xxl">
+        <b-row>
+          <b-col class="text-right pr-0">
+            <input
+              v-model="chatInput"
+              type="text"
+              :disabled="chatEnded"
+              maxlength="1000"
+              @focus="inputFocus()"
+              @blur="inputBlur()"
+              @keyup.enter="sendUserMessage()"
+            >
+          </b-col>
+          <b-col cols="auto" class="pl-0">
+            <button v-if="chatEnded" class="chat-action-btn" @click="restartChat()">
+              <img src="restart_icon_blue.svg" height="100%">
+            </button>
+            <button v-else-if="!userAllowedToChat" class="chat-action-btn" disabled>
+              <img src="send_icon_disabled.svg" height="100%">
+            </button>
+            <button v-else class="chat-action-btn" @click="sendUserMessage()">
+              <img src="send_icon_black.svg" height="100%">
+            </button>
+          </b-col>
+        </b-row>
+      </b-container>
+    </section>
     <!-- ABOUT OVERLAY -->
     <aside id="about" :class="showAbout ? 'about-active': ''">
       <b-container fluid="xxl">
         <b-row>
           <b-col class="text-right about-close-wrapper">
             <button class="about-close" @click="showAbout = false">
-              <img src="close_icon.svg" height="28">
+              <img src="close_icon_circle.svg" height="39">
             </button>
           </b-col>
         </b-row>
@@ -116,6 +96,17 @@
         </b-row>
       </b-container>
     </aside>
+    <!-- RECORDING INFO -->
+    <div v-if="!presentation && recordingPopoverVisible" id="recording-indicator-info">
+      <p><em>Bevor es losgeht...</em></p>
+      <p>Wir möchten deine Eingaben gerne aufzeichnen. Solltest du damit nicht einverstanden sein, kannst du jederzeit auf den <span class="recording-active">&#9679;</span> roten Kreis klicken. Sobald sich die Farbe von <span class="recording-active">&#9679;</span> rot auf <span class="recording-inactive">&#9679;</span> grau verändert hat, ist die Aufnahme gestoppt.</p>
+      <p class="mb-0">
+        Vielen Dank und viel Spaß!
+      </p>
+      <button class="popover-close" @click="recordingPopoverVisible = false; setRecordingStateCookie(isRecording)">
+        <img src="close_icon.svg" height="28">
+      </button>
+    </div>
   </div>
 </template>
 
@@ -133,6 +124,7 @@ export default {
       loaded: false,
       chatEnded: false,
       showAbout: false,
+      isMobile: false,
       // Chatbot
       chatInput: '',
       botDelay: [1, 3],
@@ -162,6 +154,12 @@ export default {
   async mounted () {
     this.loaded = true
     this.recordingPopoverVisible = !this.$cookie.get('knigge_rec')
+    this.isMobile = document.querySelector('body').classList.contains('mobile-browser')
+    this.$nextTick(function () {
+      if (!this.isMobile) {
+        document.querySelector('input').focus()
+      }
+    })
     await this.getLoggerSession()
     await this.getInitialMessages()
     if (this.$props.presentation) {
@@ -235,23 +233,28 @@ export default {
         typingIndicator.src = 'typing-indicator.svg'
         newMessage.append(typingIndicator)
       } else {
+        if (!message.replace(/\s/g, '').length) {
+          const messageLength = message.length
+          message = ''
+          for (let i = 0; i < messageLength; i++) {
+            message += '&nbsp;'
+          }
+        }
         const newMessageParagraph = document.createElement('p')
-        const newMessageContent = document.createTextNode(message)
-        newMessageParagraph.append(newMessageContent)
+        newMessageParagraph.innerHTML = message
         newMessage.append(newMessageParagraph)
       }
       chatWindow.append(newMessage)
-      newMessage.scrollIntoView({ behavior: 'smooth' })
+      this.scrollToLastMessage()
     },
     // Replace typing indicator by message
     replaceTypingIndicatorByMessage (message) {
       const lastMessage = document.querySelector('.chat-window').lastChild
       lastMessage.removeChild(lastMessage.firstChild)
       const newMessageParagraph = document.createElement('p')
-      const newMessageContent = document.createTextNode(message)
-      newMessageParagraph.append(newMessageContent)
+      newMessageParagraph.innerHTML = message
       lastMessage.append(newMessageParagraph)
-      lastMessage.scrollIntoView({ behavior: 'smooth' })
+      this.scrollToLastMessage()
     },
     // Send user message
     async sendUserMessage () {
@@ -361,11 +364,36 @@ export default {
       if (firstMessage) {
         firstMessage.scrollIntoView({ behavior: 'smooth' })
       }
+    },
+    // Scroll to last message
+    scrollToLastMessage () {
+      const lastMessage = document.querySelector('.chat-window').lastChild
+      if (this.isMobile) {
+        lastMessage.scrollIntoView()
+        window.scrollTo(0, 0)
+      } else {
+        lastMessage.scrollIntoView({ behavior: 'smooth' })
+      }
+    },
+    // On input focus
+    inputFocus () {
+      if (this.isMobile) {
+        document.body.classList.add('keyboard')
+        const lastMessage = document.querySelector('.chat-window').lastChild
+        setTimeout(function () {
+          if (lastMessage) {
+            lastMessage.scrollIntoView({ block: 'end' })
+          }
+          window.scrollTo(0, 0)
+        }, 200)
+      }
+    },
+    // On input blur
+    inputBlur () {
+      if (this.isMobile) {
+        document.body.classList.remove('keyboard')
+      }
     }
-    // scrollToBottomOfChatWindow () {
-    //   const chatContainer = document.getElementById('chat')
-    //   chatContainer.scrollTop = chatContainer.scrollHeight
-    // }
   }
 }
 </script>

@@ -1,11 +1,12 @@
 // === CHAT ===
 
 #chat {
-  position: relative;
-  height: calc(100vh - 58px - 65px);
-  overflow-y: scroll;
+  top: 58px;
+  bottom: 65px;
+  overflow-y: auto;
   -ms-overflow-style: none;
   scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
 }
 
 #chat::-webkit-scrollbar {
@@ -13,7 +14,7 @@
 }
 
 #chat .container-xxl, #chat .container-xxl .row {
-  height: inherit;
+  height: 100%;
 }
 
 .chat-window {
@@ -75,7 +76,7 @@
 
 @media (max-width: 767px) {
   #chat {
-    height: calc(100vh - 58px - 54px);
+    bottom: 54px;
   }
   .message {
     min-height: 69px;
@@ -93,7 +94,9 @@
 // === CHAT CONTROLS ===
 
 #chat-controls {
+  bottom: 0;
   height: 65px;
+  max-height: 65px;
 }
 
 #chat-controls .container-xxl {
@@ -150,6 +153,7 @@ button:disabled {
 @media (max-width: 767px) {
   #chat-controls {
     height: 54px;
+    max-height: 54px;
   }
   #chat-controls .container-fluid {
     height: 49px;
