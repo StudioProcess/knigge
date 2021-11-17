@@ -184,7 +184,7 @@ export default {
       await this.timeout(1000)
       for (let i = 0; i < initialMessagesCount; i++) {
         if (i > 0) {
-          await this.rndTimeout(this.botResponseDelay[0] * 1000, this.botResponseDelay[1] * 1000) // add delay before a typing indicator is shown
+          await this.timeoutSecs(this.botResponseDelay) // add delay before a typing indicator is shown
         }
         this.showMessage('', 'bot')
         const message = await this.$eliza.get_initial_async(this.botDelay)
@@ -206,7 +206,7 @@ export default {
     // Get chatbot reply
     async getReply (userMessage) {
       this.userAllowedToChat = false
-      await this.rndTimeout(this.botResponseDelay[0] * 1000, this.botResponseDelay[1] * 1000) // add delay before a typing indicator is shown
+      await this.timeoutSecs(this.botResponseDelay) // add delay before a typing indicator is shown
       this.showMessage('', 'bot')
       const reply = await this.$eliza.transform_async(userMessage, this.botDelay)
       await this.createLog(reply, 'bot')
@@ -363,9 +363,11 @@ export default {
     timeout (ms) {
       return new Promise(resolve => setTimeout(resolve, ms))
     },
-    rndTimeout (msMin, msMax) {
-      const delay = msMin + Math.random() * (msMax - msMin)
-      return this.timeout(delay)
+    timeoutSecs (secs) {
+      if (Array.isArray(secs)) {
+        secs = secs[0] + Math.random() * (secs[1] - secs[0])
+      }
+      return this.timeout(secs * 1000)
     },
     // Scroll to top (only chat history container)
     scrollToTop () {
