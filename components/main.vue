@@ -127,8 +127,9 @@ export default {
       isMobile: false,
       // Chatbot
       chatInput: '',
-      botDelay: [1, 3], // how long it takes the bot to type
-      botResponseDelay: [2, 4], // delay before bot is starting to respond (ie. typing indicator is show)
+      botTypingSpeed: [12, 18], // in characters per second
+      botMaxTypingTime: 6,
+      botResponseDelay: [1, 3], // delay before bot is starting to respond (ie. typing indicator is show)
       botInitialMessages: [],
       userAllowedToChat: false,
       userHasSentFirstMessage: false,
@@ -187,7 +188,8 @@ export default {
           await this.timeoutSecs(this.botResponseDelay) // add delay before a typing indicator is shown
         }
         this.showMessage('', 'bot')
-        const message = await this.$eliza.get_initial_async(this.botDelay)
+        const message = this.$eliza.get_initial()
+        await this.typingTimeout(message, this.botTypingSpeed, this.botMaxTypingTime)
         this.botInitialMessages.push('bot: ' + message)
         this.replaceTypingIndicatorByMessage(message)
       }
@@ -197,8 +199,10 @@ export default {
     async getFinalMessages () {
       const finalMessagesCount = this.$eliza.get_options().fixed_final
       for (let i = 0; i < finalMessagesCount; i++) {
+        await this.timeoutSecs(this.botResponseDelay) // add delay before a typing indicator is shown
         this.showMessage('', 'bot')
-        const message = await this.$eliza.get_final_async(this.botDelay)
+        const message = await this.$eliza.get_final()
+        await this.typingTimeout(message, this.botTypingSpeed, this.botMaxTypingTime)
         await this.createLog(message, 'bot')
         this.replaceTypingIndicatorByMessage(message)
       }
@@ -208,7 +212,8 @@ export default {
       this.userAllowedToChat = false
       await this.timeoutSecs(this.botResponseDelay) // add delay before a typing indicator is shown
       this.showMessage('', 'bot')
-      const reply = await this.$eliza.transform_async(userMessage, this.botDelay)
+      const reply = this.$eliza.transform(userMessage)
+      await this.typingTimeout(reply, this.botTypingSpeed, this.botMaxTypingTime)
       await this.createLog(reply, 'bot')
       this.replaceTypingIndicatorByMessage(reply)
       // Check if the last message ends the conversation
@@ -367,6 +372,13 @@ export default {
       if (Array.isArray(secs)) {
         secs = secs[0] + Math.random() * (secs[1] - secs[0])
       }
+      return this.timeout(secs * 1000)
+    },
+    typingTimeout (message, typingSpeed = 1, maxTimeout = 6) {
+      if (Array.isArray(typingSpeed)) {
+        typingSpeed = typingSpeed[0] + Math.random() * (typingSpeed[1] - typingSpeed[0])
+      }
+      const secs = Math.min(message.length / typingSpeed, maxTimeout)
       return this.timeout(secs * 1000)
     },
     // Scroll to top (only chat history container)
