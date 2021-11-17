@@ -127,7 +127,8 @@ export default {
       isMobile: false,
       // Chatbot
       chatInput: '',
-      botDelay: [1, 3],
+      botDelay: [1, 3], // how long it takes the bot to type
+      botResponseDelay: [2, 4], // delay before bot is starting to respond (ie. typing indicator is show)
       botInitialMessages: [],
       userAllowedToChat: false,
       userHasSentFirstMessage: false,
@@ -182,6 +183,9 @@ export default {
       const initialMessagesCount = this.$eliza.get_options().fixed_initial + 1
       await this.timeout(1000)
       for (let i = 0; i < initialMessagesCount; i++) {
+        if (i > 0) {
+          await this.rndTimeout(this.botResponseDelay[0] * 1000, this.botResponseDelay[1] * 1000) // add delay before a typing indicator is shown
+        }
         this.showMessage('', 'bot')
         const message = await this.$eliza.get_initial_async(this.botDelay)
         this.botInitialMessages.push('bot: ' + message)
@@ -202,6 +206,7 @@ export default {
     // Get chatbot reply
     async getReply (userMessage) {
       this.userAllowedToChat = false
+      await this.rndTimeout(this.botResponseDelay[0] * 1000, this.botResponseDelay[1] * 1000) // add delay before a typing indicator is shown
       this.showMessage('', 'bot')
       const reply = await this.$eliza.transform_async(userMessage, this.botDelay)
       await this.createLog(reply, 'bot')
@@ -357,6 +362,10 @@ export default {
     // Timeout as promise
     timeout (ms) {
       return new Promise(resolve => setTimeout(resolve, ms))
+    },
+    rndTimeout (msMin, msMax) {
+      const delay = msMin + Math.random() * (msMax - msMin)
+      return this.timeout(delay)
     },
     // Scroll to top (only chat history container)
     scrollToTop () {
