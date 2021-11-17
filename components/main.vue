@@ -18,7 +18,7 @@
             />
           </b-col>
           <b-col class="text-right">
-            <button @click="showAbout = true">
+            <button v-if="!presentation" @click="showAbout = true">
               <img src="info_icon.svg" height="39">
             </button>
           </b-col>
@@ -81,17 +81,156 @@
             <h1>Informationen über das Projekt</h1>
           </b-col>
         </b-row>
-        <b-row class="bg-website-lighter">
-          <b-col lg="2" class="text-center px-8 px-lg-3 py-3">
+        <b-row class="d-none d-lg-flex about-section-margin bg-website-lighter">
+          <b-col lg="3" class="text-center px-8 px-lg-4 py-3">
             <img src="knigge_icon.svg" width="100%" style="max-width:350px">
           </b-col>
-          <b-col lg="9" class="py-3">
+          <b-col lg="8" class="py-3">
             <h2 class="mb-4">
               Wer ist Knigge?
             </h2>
-            <p class="mr-3">
+            <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nulla arcu, cursus id tellus vitae, aliquam egestas erat. Nunc malesuada eu ipsum nec finibus. Integer posuere nisi erat, sed ornare leo aliquet non. Phasellus scelerisque elit eu felis finibus, non rhoncus ante venenatis. Sed sodales scelerisque tempor. Vivamus ut lorem vel arcu vehicula blandit eget ut ipsum. Donec mattis malesuada lacinia. Cras vel dapibus ipsum. Suspendisse potenti. Praesent a nisi augue. Aenean et accumsan lectus. Duis aliquam lobortis enim, non porttitor ipsum rhoncus ut. Donec in fringilla ligula, sed congue massa.
             </p>
+          </b-col>
+        </b-row>
+        <b-row class="d-block d-lg-none">
+          <b-col class="text-center px-6 pt-2 pb-4">
+            <img src="knigge_icon.svg" width="100%" style="max-width:350px">
+          </b-col>
+        </b-row>
+        <b-row class="d-block d-lg-none about-section-margin">
+          <b-col>
+            <div class="bg-website-lighter py-3 px-3">
+              <h2 class="mb-4">
+                Wer ist Knigge?
+              </h2>
+              <p class="mb-0">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nulla arcu, cursus id tellus vitae, aliquam egestas erat. Nunc malesuada eu ipsum nec finibus. Integer posuere nisi erat, sed ornare leo aliquet non. Phasellus scelerisque elit eu felis finibus, non rhoncus ante venenatis. Sed sodales scelerisque tempor. Vivamus ut lorem vel arcu vehicula blandit eget ut ipsum. Donec mattis malesuada lacinia. Cras vel dapibus ipsum. Suspendisse potenti. Praesent a nisi augue. Aenean et accumsan lectus. Duis aliquam lobortis enim, non porttitor ipsum rhoncus ut. Donec in fringilla ligula, sed congue massa.
+              </p>
+            </div>
+          </b-col>
+        </b-row>
+        <b-row class="about-section-margin">
+          <b-col lg="5" offset-lg="6" class="cmpx-0">
+            <img src="https://via.placeholder.com/600x400?text=PLACEHOLDER" width="100%">
+            <p class="caption-text mt-2 cmpx-10">
+              ELIZA in der Ausstellung UNCANNY VALUES im MAK – Museum für angewandte Kunst, 2019
+            </p>
+          </b-col>
+        </b-row>
+        <b-row>
+          <b-col lg="11">
+            <div class="about-top-border" />
+            <h2 class="mb-4">
+              Warum mit Knigge plaudern?
+            </h2>
+          </b-col>
+        </b-row>
+        <b-row class="about-section-margin">
+          <b-col lg="9">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nulla arcu, cursus id tellus vitae, aliquam egestas erat. Nunc malesuada eu ipsum nec finibus. Integer posuere nisi erat, sed ornare leo aliquet non. Phasellus scelerisque elit eu felis finibus, non rhoncus ante venenatis. Sed sodales scelerisque tempor. Vivamus ut lorem vel arcu vehicula blandit eget ut ipsum. Donec mattis malesuada lacinia. Cras vel dapibus ipsum. Suspendisse potenti. Praesent a nisi augue. Aenean et accumsan lectus. Duis aliquam lobortis enim, non porttitor ipsum rhoncus ut. Donec in fringilla ligula, sed congue massa.
+            </p>
+          </b-col>
+        </b-row>
+        <b-row>
+          <b-col lg="11">
+            <div class="about-top-border" />
+            <h2 class="mb-4">
+              Technisches/Beteiligte
+            </h2>
+          </b-col>
+        </b-row>
+        <b-row>
+          <b-col lg="9">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nulla arcu, cursus id tellus vitae, aliquam egestas erat. Nunc malesuada eu ipsum nec finibus. Integer posuere nisi erat, sed ornare leo aliquet non. Phasellus scelerisque.
+            </p>
+          </b-col>
+        </b-row>
+        <b-row class="mt-2 about-section-margin">
+          <b-col lg="2">
+            <p>TEAM</p>
+          </b-col>
+          <b-col lg="7">
+            <p>Kathi Musterfrau<br>Lorem ipsum dolor sit amet.</p>
+            <p>Max Mustermann<br>Nunc malesuada eu ipsum nec finibus.</p>
+            <p>Max Mustermann<br>Integer posuere nisi erat, sed ornare leo aliquet non.</p>
+            <p class="mb-0">
+              Max Mustermann<br>Donec nulla arcu, cursus id tellus vitae.
+            </p>
+          </b-col>
+        </b-row>
+        <b-row class="mt-2 about-section-margin">
+          <b-col lg="5" class="cmpx-0">
+            <img src="https://via.placeholder.com/600x400?text=PLACEHOLDER" width="100%">
+            <p class="cmpx-10 caption-text mt-2">
+              ELIZA in der Ausstellung UNCANNY VALUES im MAK – Museum für angewandte Kunst, 2019
+            </p>
+          </b-col>
+        </b-row>
+        <b-row>
+          <b-col lg="11">
+            <div class="about-top-border" />
+            <h2 class="mb-4">
+              Weiterführendes
+            </h2>
+          </b-col>
+        </b-row>
+        <b-row>
+          <b-col lg="9">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+          </b-col>
+        </b-row>
+        <b-row class="mt-2">
+          <b-col lg="3">
+            <p>PRESSE</p>
+          </b-col>
+          <b-col lg="8">
+            <p>
+              <a href="#">"Schaut euch diesen Gesprächspartner an"</a> – <em>Der Standard</em><br>
+              <a href="#">"Ich unterhalte mich gerne – mit Computern"</a> – <em>Die Zeit</em><br>
+              <a href="#">"Schaut euch diesen Gesprächspartner an"</a> – <em>Kurier</em><br>
+              <a href="#">"Ich unterhalte mich gerne – mit Computern. Aber auch mit Menschen"</a> – <em>Falter</em>
+            </p>
+          </b-col>
+        </b-row>
+        <b-row class="mt-2 about-section-margin">
+          <b-col lg="3">
+            <p>HINTERGRUND</p>
+          </b-col>
+          <b-col lg="8">
+            <p>
+              <a href="#">Adolph Freiherr Knigge</a> – <em>Wikipedia</em><br>
+              <a href="#">Was sind Chatbots?</a> – <em>Wikipedia</em><br>
+              <a href="#">Erster Chatbot gewinnt Goldene Nica</a> – <em>Ars Electronica</em><br>
+              <a href="#">Über's Reden reden</a> – <em>Kulturverein</em><br>
+              <a href="#">Computer Conversations (1965)</a> – <em>MIT Archiv</em><br>
+              <a href="#">Adolph Freiherr Knigge</a> – <em>Wikipedia</em><br>
+              <a href="#">Was sind Chatbots?</a> – <em>Wikipedia</em><br>
+              <a href="#">Erster Chatbot gewinnt Goldene Nica</a> – <em>Ars Electronica</em><br>
+              <a href="#">Über's Reden reden</a> – <em>Kulturverein</em><br>
+              <a href="#">Computer Conversations (1965)</a> – <em>MIT Archiv</em>
+            </p>
+          </b-col>
+        </b-row>
+        <b-row>
+          <b-col lg="11">
+            <div class="about-top-border" />
+            <h2 class="mb-4">
+              Kontakt
+            </h2>
+          </b-col>
+        </b-row>
+        <b-row class="about-section-margin">
+          <b-col lg="9">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
+            <p>Kathi Musterfrau, <a href="mailto:kathi@kniggeprojekt.at" rel="nofollow">kathi@kniggeprojekt.at</a></p>
           </b-col>
         </b-row>
       </b-container>

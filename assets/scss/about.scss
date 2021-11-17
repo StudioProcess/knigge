@@ -30,3 +30,24 @@
 .about-close {
   margin-top: 10px;
 }
+
+.bg-website-lighter {
+  background-color: $bg-website-lighter;
+	border-radius: 0.875rem;
+}
+
+.about-top-border {
+  width: 100%;
+	height: 2px;
+	background: $font-color;
+}
+
+.about-section-margin {
+  margin-bottom: 150px;
+}
+
+@media (max-width: 767px) {
+	.about-section-margin {
+		margin-bottom: 100px;
+	}
+}
