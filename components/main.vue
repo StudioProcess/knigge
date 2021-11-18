@@ -78,7 +78,7 @@
         </b-row>
         <b-row>
           <b-col class="text-center pt-4 pb-5">
-            <h1>Informationen über das Projekt</h1>
+            <h1>Über das Projekt</h1>
           </b-col>
         </b-row>
         <b-row class="d-none d-lg-flex about-section-margin bg-website-lighter">
@@ -138,35 +138,14 @@
           <b-col lg="11">
             <div class="about-top-border" />
             <h2 class="mb-4">
-              Technisches/Beteiligte
+              Datenschutz
             </h2>
           </b-col>
         </b-row>
-        <b-row>
+        <b-row class="about-section-margin">
           <b-col lg="9">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nulla arcu, cursus id tellus vitae, aliquam egestas erat. Nunc malesuada eu ipsum nec finibus. Integer posuere nisi erat, sed ornare leo aliquet non. Phasellus scelerisque.
-            </p>
-          </b-col>
-        </b-row>
-        <b-row class="mt-2 about-section-margin">
-          <b-col lg="2">
-            <p>TEAM</p>
-          </b-col>
-          <b-col lg="7">
-            <p>Kathi Musterfrau<br>Lorem ipsum dolor sit amet.</p>
-            <p>Max Mustermann<br>Nunc malesuada eu ipsum nec finibus.</p>
-            <p>Max Mustermann<br>Integer posuere nisi erat, sed ornare leo aliquet non.</p>
-            <p class="mb-0">
-              Max Mustermann<br>Donec nulla arcu, cursus id tellus vitae.
-            </p>
-          </b-col>
-        </b-row>
-        <b-row class="mt-2 about-section-margin">
-          <b-col lg="5" class="cmpx-0">
-            <img src="https://via.placeholder.com/600x400?text=PLACEHOLDER" width="100%">
-            <p class="cmpx-10 caption-text mt-2">
-              ELIZA in der Ausstellung UNCANNY VALUES im MAK – Museum für angewandte Kunst, 2019
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nulla arcu, cursus id tellus vitae, aliquam egestas erat. Nunc malesuada eu ipsum nec finibus. Integer posuere nisi erat, sed ornare leo aliquet non. Phasellus scelerisque elit eu felis finibus, non rhoncus ante venenatis. Sed sodales scelerisque tempor. Vivamus ut lorem vel arcu vehicula blandit eget ut ipsum. Donec mattis malesuada lacinia. Cras vel dapibus ipsum. Suspendisse potenti. Praesent a nisi augue. Aenean et accumsan lectus. Duis aliquam lobortis enim, non porttitor ipsum rhoncus ut. Donec in fringilla ligula, sed congue massa.
             </p>
           </b-col>
         </b-row>
@@ -214,6 +193,42 @@
               <a href="#">Erster Chatbot gewinnt Goldene Nica</a> – <em>Ars Electronica</em><br>
               <a href="#">Über's Reden reden</a> – <em>Kulturverein</em><br>
               <a href="#">Computer Conversations (1965)</a> – <em>MIT Archiv</em>
+            </p>
+          </b-col>
+        </b-row>
+        <b-row>
+          <b-col lg="11">
+            <div class="about-top-border" />
+            <h2 class="mb-4">
+              Beteiligte
+            </h2>
+          </b-col>
+        </b-row>
+        <b-row>
+          <b-col lg="9">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nulla arcu, cursus id tellus vitae, aliquam egestas erat. Nunc malesuada eu ipsum nec finibus. Integer posuere nisi erat, sed ornare leo aliquet non. Phasellus scelerisque.
+            </p>
+          </b-col>
+        </b-row>
+        <b-row class="mt-2 about-section-margin">
+          <b-col lg="2">
+            <p>TEAM</p>
+          </b-col>
+          <b-col lg="7">
+            <p>Kathi Musterfrau<br>Lorem ipsum dolor sit amet.</p>
+            <p>Max Mustermann<br>Nunc malesuada eu ipsum nec finibus.</p>
+            <p>Max Mustermann<br>Integer posuere nisi erat, sed ornare leo aliquet non.</p>
+            <p class="mb-0">
+              Max Mustermann<br>Donec nulla arcu, cursus id tellus vitae.
+            </p>
+          </b-col>
+        </b-row>
+        <b-row class="mt-2 about-section-margin">
+          <b-col lg="5" class="cmpx-0">
+            <img src="https://via.placeholder.com/600x400?text=PLACEHOLDER" width="100%">
+            <p class="cmpx-10 caption-text mt-2">
+              ELIZA in der Ausstellung UNCANNY VALUES im MAK – Museum für angewandte Kunst, 2019
             </p>
           </b-col>
         </b-row>
