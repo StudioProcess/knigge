@@ -3,22 +3,39 @@
 // APP VARIABLES
 
 // Backgrounds
-$bg-website: #F7F0E1;
+// $bg-website: #F7F0E1;
+// $bg-website-lighter: #FBF8F0;
+// $bg-user-text-bubbles: #FFFFFF;
+// $bg-chatbot-text-bubbles: #CACACA;
+// 
+// // Text
+// $font-color: #000000;
+// $font-color-muted: #868686;
+// $user-text-bubbles: #000000;
+// $chatbot-text-bubbles: #000000;
+// $placeholder-blue-text: #579BFF;
+// 
+// // Other
+// $recording-active-color: #ED1C24;
+// $recording-inactive-color: #CACACA;
+
+// color variant 1 (light blue, grey)
+// Backgrounds
+$bg-website: #F7F0E1; 
 $bg-website-lighter: #FBF8F0;
-$bg-user-text-bubbles: #FFFFFF;
-$bg-chatbot-text-bubbles: #CACACA;
+$bg-user-text-bubbles: #4E9CF2; 
+$bg-chatbot-text-bubbles: #D3D3DC; 
 
 // Text
 $font-color: #000000;
 $font-color-muted: #868686;
-$user-text-bubbles: #000000;
+$user-text-bubbles: #FFFFFF;
 $chatbot-text-bubbles: #000000;
 $placeholder-blue-text: #579BFF;
 
 // Other
 $recording-active-color: #ED1C24;
 $recording-inactive-color: #CACACA;
-
 
 // BOOTSTRAP VARIABLES
 
