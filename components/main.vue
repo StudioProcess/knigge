@@ -68,16 +68,20 @@
     </section>
     <!-- ABOUT OVERLAY -->
     <aside id="about" :class="showAbout ? 'about-active': ''">
+      <div class="about-close-wrapper">
+        <b-container fluid="xxl">
+          <b-row>
+            <b-col class="text-right">
+              <button class="about-close" @click="showAbout = false">
+                <img src="close_icon_circle.svg" height="39">
+              </button>
+            </b-col>
+          </b-row>
+        </b-container>
+      </div>
       <b-container fluid="xxl">
         <b-row>
-          <b-col class="text-right about-close-wrapper">
-            <button class="about-close" @click="showAbout = false">
-              <img src="close_icon_circle.svg" height="39">
-            </button>
-          </b-col>
-        </b-row>
-        <b-row>
-          <b-col class="text-center pt-4 pb-5">
+          <b-col class="text-center pt-5 pb-5">
             <h1>Über das Projekt</h1>
           </b-col>
         </b-row>
@@ -320,6 +324,11 @@ export default {
     await this.getInitialMessages()
     if (this.$props.presentation) {
       this.startUserInteractionTimer()
+      document.addEventListener('mousedown', this.resetUserInteractionTimer)
+      document.addEventListener('mouseover', this.resetUserInteractionTimer)
+      document.addEventListener('touchstart', this.resetUserInteractionTimer)
+      document.addEventListener('scroll', this.resetUserInteractionTimer)
+      document.addEventListener('keydown', this.resetUserInteractionTimer)
     }
   },
   destroyed () {
@@ -424,10 +433,6 @@ export default {
     async sendUserMessage () {
       const userMessage = this.chatInput
       if (userMessage && this.userAllowedToChat) {
-        if (this.$props.presentation) {
-          this.stopUserInteractionTimer()
-          this.startUserInteractionTimer()
-        }
         if (this.userHasSentFirstMessage) {
           await this.createLog(userMessage, 'user')
         } else {
@@ -516,6 +521,10 @@ export default {
     stopUserInteractionTimer () {
       clearInterval(this.lastUserInteractionTimer)
       this.lastUserInteractionElapsedTime = 0
+    },
+    resetUserInteractionTimer () {
+      this.stopUserInteractionTimer()
+      this.startUserInteractionTimer()
     },
     // === UTILITY METHODS ===
     // Timeout as promise
