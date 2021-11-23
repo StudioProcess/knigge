@@ -298,6 +298,7 @@ export default {
       recordingPopoverVisible: true,
       isRecording: false,
       isRecordingCookieExpiration: 2,
+      userInteractionEventListeners: ['mousedown', 'mouseover', 'touchstart', 'scroll', 'keydown', 'visibilitychange'],
       noUserInteractionTimeout: 10000, // presentation mode: time since last user interaction before chat reset (in ms)
       lastUserInteractionTimer: undefined,
       lastUserInteractionElapsedTime: 0
@@ -322,17 +323,12 @@ export default {
     })
     await this.getLoggerSession()
     await this.getInitialMessages()
-    if (this.$props.presentation) {
-      this.startUserInteractionTimer()
-      document.addEventListener('mousedown', this.resetUserInteractionTimer)
-      document.addEventListener('mouseover', this.resetUserInteractionTimer)
-      document.addEventListener('touchstart', this.resetUserInteractionTimer)
-      document.addEventListener('scroll', this.resetUserInteractionTimer)
-      document.addEventListener('keydown', this.resetUserInteractionTimer)
-    }
   },
   destroyed () {
-    this.stopUserInteractionTimer()
+    if (this.$props.presentation) {
+      this.stopUserInteractionTimer()
+      this.stopListeningForUserInteraction()
+    }
     this.$eliza.reset()
   },
   methods: {
@@ -344,6 +340,10 @@ export default {
     },
     // Get initial chatbot messages
     async getInitialMessages () {
+      if (this.$props.presentation) {
+        this.stopUserInteractionTimer()
+        this.stopListeningForUserInteraction()
+      }
       const initialMessagesCount = this.$eliza.get_options().fixed_initial + 1
       await this.timeout(1000)
       for (let i = 0; i < initialMessagesCount; i++) {
@@ -355,6 +355,10 @@ export default {
         await this.typingTimeout(message, this.botTypingSpeed, this.botMaxTypingTime)
         this.botInitialMessages.push('bot: ' + message)
         this.replaceTypingIndicatorByMessage(message)
+      }
+      if (this.$props.presentation) {
+        this.startUserInteractionTimer()
+        this.startListeningForUserInteraction()
       }
       this.userAllowedToChat = true
     },
@@ -387,6 +391,7 @@ export default {
         this.chatEnded = true
         if (this.$props.presentation) {
           this.stopUserInteractionTimer()
+          this.stopListeningForUserInteraction()
           await this.timeout(5000)
           this.restartChat()
         } else {
@@ -424,11 +429,13 @@ export default {
     // Replace typing indicator by message
     replaceTypingIndicatorByMessage (message) {
       const lastMessage = document.querySelector('.chat-window').lastChild
-      lastMessage.removeChild(lastMessage.firstChild)
-      const newMessageParagraph = document.createElement('p')
-      newMessageParagraph.innerHTML = message
-      lastMessage.append(newMessageParagraph)
-      this.scrollToLastMessage()
+      if (lastMessage) {
+        lastMessage.removeChild(lastMessage.firstChild)
+        const newMessageParagraph = document.createElement('p')
+        newMessageParagraph.innerHTML = message
+        lastMessage.append(newMessageParagraph)
+        this.scrollToLastMessage()
+      }
     },
     // Send user message
     async sendUserMessage () {
@@ -459,9 +466,6 @@ export default {
       this.$eliza.reset()
       await this.getLoggerSession()
       await this.getInitialMessages()
-      if (this.$props.presentation) {
-        this.startUserInteractionTimer()
-      }
     },
     // Clear chat
     clearChat () {
@@ -515,6 +519,12 @@ export default {
       }
     },
     // User interaction timer (for presentation mode)
+    startListeningForUserInteraction () {
+      this.userInteractionEventListeners.forEach(x => document.addEventListener(x, this.resetUserInteractionTimer))
+    },
+    stopListeningForUserInteraction () {
+      this.userInteractionEventListeners.forEach(x => document.removeEventListener(x, this.resetUserInteractionTimer))
+    },
     startUserInteractionTimer () {
       this.lastUserInteractionTimer = setInterval(() => {
         this.lastUserInteractionElapsedTime += 1000
