@@ -381,6 +381,8 @@ export default {
       this.replaceTypingIndicatorByMessage(reply)
       // Check if the last message ends the conversation
       if (this.$eliza.is_quit()) {
+        this.chatInput = ''
+        document.querySelector('input').disabled = true
         await this.getFinalMessages()
         this.chatEnded = true
         if (this.$props.presentation) {
@@ -388,7 +390,6 @@ export default {
           await this.timeout(5000)
           this.restartChat()
         } else {
-          document.querySelector('input').value = ''
           document.querySelector('input').classList.add('placeholder-blue')
           document.querySelector('input').placeholder = window.innerWidth > 767 ? 'Gespräch beendet. Klicken für Neustart →' : 'Gespräch beendet. Neustart →'
         }
@@ -449,6 +450,7 @@ export default {
     },
     // Restart chat
     async restartChat () {
+      this.chatInput = ''
       document.querySelector('input').placeholder = ''
       document.querySelector('input').className = ''
       this.clearChat()
