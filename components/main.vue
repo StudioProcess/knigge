@@ -357,7 +357,7 @@ export default {
         this.replaceTypingIndicatorByMessage(message)
       }
       if (this.$props.presentation) {
-        this.startUserInteractionTimer()
+        // this.startUserInteractionTimer() // don't start timer immediately (without interaction)
         this.startListeningForUserInteraction()
       }
       this.userAllowedToChat = true
