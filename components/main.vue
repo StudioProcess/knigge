@@ -385,9 +385,9 @@ export default {
       this.replaceTypingIndicatorByMessage(reply)
       // Check if the last message ends the conversation
       if (this.$eliza.is_quit()) {
+        await this.getFinalMessages()
         this.chatInput = ''
         document.querySelector('input').disabled = true
-        await this.getFinalMessages()
         this.chatEnded = true
         if (this.$props.presentation) {
           this.stopUserInteractionTimer()
