@@ -493,7 +493,7 @@ export default {
       await this.$axios.$get(`${this.apiUrl}/session`).then((response) => {
         this.loggerSessionToken = response.session
         // eslint-disable-next-line
-        this.isRecording = this.$cookie.get('knigge_rec') && this.$cookie.get('knigge_rec') === 'false' ? false : true
+        this.isRecording = this.$props.presentation ? true : (this.$cookie.get('knigge_rec') && this.$cookie.get('knigge_rec') === 'false' ? false : true)
       }).catch((error) => {
         if (error.response) {
           // eslint-disable-next-line
