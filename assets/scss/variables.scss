@@ -19,18 +19,19 @@
 // $recording-active-color: #ED1C24;
 // $recording-inactive-color: #CACACA;
 
-// // color variant 1 (light blue, grey)
+// // color variant 1 (light blue, grey, white background)
+// // needs tweaking of input field (same grey as $bg-user-text-bubbles)
 // // Backgrounds
-// $bg-website: #F7F0E1; 
+// $bg-website: #FFFFFF; 
 // $bg-website-lighter: #FBF8F0;
-// $bg-user-text-bubbles: #4E9CF2; 
-// $bg-chatbot-text-bubbles: #D3D3DC; 
+// $bg-user-text-bubbles: #F1F3F4; 
+// $bg-chatbot-text-bubbles: #4E9CF2; 
 // 
 // // Text
 // $font-color: #000000;
 // $font-color-muted: #868686;
-// $user-text-bubbles: #FFFFFF;
-// $chatbot-text-bubbles: #000000;
+// $user-text-bubbles: #000000;
+// $chatbot-text-bubbles: #FFFFFF;
 // $placeholder-blue-text: #579BFF;
 // 
 // // Other
