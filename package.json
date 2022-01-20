@@ -1,7 +1,7 @@
 {
   "name": "studio_process_knigge",
   "author": "Laurent Lang <hello@laurentlang.com> (https://www.laurentlang.com)",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "engines": {
     "node": "=14",
@@ -11,7 +11,7 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "API_URL=https://islandrabe.com/vorarbeit/knigge/api nuxt generate",
+    "generate": "API_URL=https://knigge.chat/api nuxt generate",
     "generate-vorarbeit": "API_URL=https://islandrabe.com/vorarbeit/knigge/api BASE_URL=/vorarbeit/knigge nuxt generate",
     "generate-sketch": "API_URL=https://sketch.process.studio/knigge/api BASE_URL=/knigge nuxt generate",
     "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
