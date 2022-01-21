@@ -16,7 +16,7 @@
     "generate-sketch": "API_URL=https://sketch.process.studio/knigge/api BASE_URL=/knigge nuxt generate",
     "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
     "lint": "npm run lint:js",
-    "proxy": "lcp --proxyUrl https://islandrabe.com/vorarbeit/knigge/api"
+    "proxy": "lcp --proxyUrl https://knigge.chat/api"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",

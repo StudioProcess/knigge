@@ -2,22 +2,22 @@ export default {
   ssr: false,
   target: 'static',
   head: {
-    title: 'Knigge',
+    title: 'Knigge – Reden über’s Reden',
     htmlAttrs: {
       lang: 'de'
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'A project by Process – Studio for Art and Design.' },
-      { hid: 'og:title', name: 'og:title', content: 'Knigge' },
-      { hid: 'og:description', name: 'og:description', content: 'A project by Process – Studio for Art and Design.' },
+      { hid: 'description', name: 'description', content: 'Knigge ist ein Chatbot, der über’s Reden reden will. Die Gespräche mit ihm lassen ein kommunikatives Gesamtkunstwerk entstehen.' },
+      { hid: 'og:title', name: 'og:title', content: 'Knigge – Reden über’s Reden' },
+      { hid: 'og:description', name: 'og:description', content: 'Knigge ist ein Chatbot, der über’s Reden reden will. Die Gespräche mit ihm lassen ein kommunikatives Gesamtkunstwerk entstehen.' },
       { hid: 'og:image', name: 'og:image', content: (process.env.URL || 'http://localhost:3000') + '/knigge_card_fb.jpg' },
       { hid: 'og:locale', name: 'og:locale', content: 'de_AT' },
       { hid: 'og:type', name: 'og:type', content: 'website' },
       { hid: 'og:url', name: 'og:url', content: process.env.URL || 'http://localhost:3000' },
       { hid: 'twitter:card', name: 'twitter:card', content: 'summary_large_image' },
-      { hid: 'twitter:site', name: 'twitter:site', content: '@studioprocess' },
+      { hid: 'twitter:title', name: 'twitter:title', content: 'Knigge – Reden über’s Reden' },
       { hid: 'twitter:image', name: 'twitter:image', content: (process.env.URL || 'http://localhost:3000') + '/knigge_card_twitter.png' },
       { hid: 'theme-color', name: 'theme-color', content: '#000000' },
       { hid: 'robots', name: 'robots', content: 'noindex,nofollow' }

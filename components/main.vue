@@ -94,7 +94,13 @@
               Wer ist Knigge?
             </h2>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nulla arcu, cursus id tellus vitae, aliquam egestas erat. Nunc malesuada eu ipsum nec finibus. Integer posuere nisi erat, sed ornare leo aliquet non. Phasellus scelerisque elit eu felis finibus, non rhoncus ante venenatis. Sed sodales scelerisque tempor. Vivamus ut lorem vel arcu vehicula blandit eget ut ipsum. Donec mattis malesuada lacinia. Cras vel dapibus ipsum. Suspendisse potenti. Praesent a nisi augue. Aenean et accumsan lectus. Duis aliquam lobortis enim, non porttitor ipsum rhoncus ut. Donec in fringilla ligula, sed congue massa.
+              <em>Knigge</em> ist ein Chatbot, der über’s Reden reden will. Er – der Chatbot – sucht das Gespräch über Erfahrungen mit und Vorstellungen von gelungener Kommunikation.
+            </p>
+            <p>
+              Sein Name geht zurück auf den Schriftsteller Adolph Freiherr von Knigge (1752–1796), der sich in seinem Werk „Über den Umgang mit Menschen“ (kurz auch „der Knigge“ genannt) Gedanken darüber machte, wie ein Miteinander gestaltet werden kann.
+            </p>
+            <p>
+              Gut 150 Jahre später befasste sich der Informatiker Joseph Weizenbaum in der Frühzeit von Computern mit Mensch-Maschine-Kommunikation. 1966 stellte er den Chatbot ELIZA vor, mit dem User:innen in Dialog treten konnten, worauf die Software mittels eines Skripts an Schlüsselworten und Transformationsregeln Antworten generierte. ELIZA gilt als Vorläufer heutiger KI-Software – und <em>Knigge</em> basiert auf dem damals entwickelten Code, allerdings mit einem neuen Skript zur gegenwärtigen Gesprächskultur.
             </p>
           </b-col>
         </b-row>
@@ -109,8 +115,14 @@
               <h2 class="mb-4">
                 Wer ist Knigge?
               </h2>
-              <p class="mb-0">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nulla arcu, cursus id tellus vitae, aliquam egestas erat. Nunc malesuada eu ipsum nec finibus. Integer posuere nisi erat, sed ornare leo aliquet non. Phasellus scelerisque elit eu felis finibus, non rhoncus ante venenatis. Sed sodales scelerisque tempor. Vivamus ut lorem vel arcu vehicula blandit eget ut ipsum. Donec mattis malesuada lacinia. Cras vel dapibus ipsum. Suspendisse potenti. Praesent a nisi augue. Aenean et accumsan lectus. Duis aliquam lobortis enim, non porttitor ipsum rhoncus ut. Donec in fringilla ligula, sed congue massa.
+              <p>
+                <em>Knigge</em> ist ein Chatbot, der über’s Reden reden will. Er – der Chatbot – sucht das Gespräch über Erfahrungen mit und Vorstellungen von gelungener Kommunikation.
+              </p>
+              <p>
+                Sein Name geht zurück auf den Schriftsteller Adolph Freiherr von Knigge (1752–1796), der sich in seinem Werk „Über den Umgang mit Menschen“ (kurz auch „der Knigge“ genannt) Gedanken darüber machte, wie ein Miteinander gestaltet werden kann.
+              </p>
+              <p>
+                Gut 150 Jahre später befasste sich der Informatiker Joseph Weizenbaum in der Frühzeit von Computern mit Mensch-Maschine-Kommunikation. 1966 stellte er den Chatbot ELIZA vor, mit dem User:innen in Dialog treten konnten, worauf die Software mittels eines Skripts an Schlüsselworten und Transformationsregeln Antworten generierte. ELIZA gilt als Vorläufer heutiger KI-Software – und <em>Knigge</em> basiert auf dem damals entwickelten Code, allerdings mit einem neuen Skript zur gegenwärtigen Gesprächskultur.
               </p>
             </div>
           </b-col>
@@ -134,7 +146,13 @@
         <b-row class="about-section-margin">
           <b-col lg="9">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nulla arcu, cursus id tellus vitae, aliquam egestas erat. Nunc malesuada eu ipsum nec finibus. Integer posuere nisi erat, sed ornare leo aliquet non. Phasellus scelerisque elit eu felis finibus, non rhoncus ante venenatis. Sed sodales scelerisque tempor. Vivamus ut lorem vel arcu vehicula blandit eget ut ipsum. Donec mattis malesuada lacinia. Cras vel dapibus ipsum. Suspendisse potenti. Praesent a nisi augue. Aenean et accumsan lectus. Duis aliquam lobortis enim, non porttitor ipsum rhoncus ut. Donec in fringilla ligula, sed congue massa.
+              <em>Knigge</em> ist das Resultat des Projekts <a href="https://islandrabe.com/projekte/zwischenmenschen/" target="_blank">„Was ist zwischen den Menschen“</a>, bei dem in verschiedenen Formaten gemeinsam über Zwischenmenschliches nachgedacht wurde. <em>Knigge</em> ist befüllt mit Eindrücken daraus und so gibt er im Gespräch auch einen Einblick in das bisher Gesagt- und Gedachte.<br>
+            </p>
+            <p>
+              Die Chats mit <em>Knigge</em> werden in anonymisierter Form aufgezeichnet und fließen ihrerseits wiederum in sein Skript ein: Die Sammlung wächst somit ständig weiter und jeder Dialog wird selbst zum Teil des Gesamtkunstwerks.
+            </p>
+            <p>
+              Im Zentrum steht dabei Kommunikation, die Grundbedingung dafür, dass Menschen gemeinsame Wege finden. Sie ist allgegenwärtig und zugleich selten im Fokus von Beobachtungen, Erfahrungen und Wünschen. <em>Knigge</em> ist hier Sammelnder und Vermittelnder zugleich, dient aber in erster Linie keinem Zweck, denn er hat sich selbst zum Zweck: Das Gespräch mit ihm soll unterhalten, Anregungen bieten und zu Antworten führen, ob und wie wir uns im Kommunizieren wohl fühlen.
             </p>
           </b-col>
         </b-row>
@@ -142,14 +160,17 @@
           <b-col lg="11">
             <div class="about-top-border" />
             <h2 class="mb-4">
-              Datenschutz
+              Eigener Beitrag und Datenschutz
             </h2>
           </b-col>
         </b-row>
         <b-row class="about-section-margin">
           <b-col lg="9">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nulla arcu, cursus id tellus vitae, aliquam egestas erat. Nunc malesuada eu ipsum nec finibus. Integer posuere nisi erat, sed ornare leo aliquet non. Phasellus scelerisque elit eu felis finibus, non rhoncus ante venenatis. Sed sodales scelerisque tempor. Vivamus ut lorem vel arcu vehicula blandit eget ut ipsum. Donec mattis malesuada lacinia. Cras vel dapibus ipsum. Suspendisse potenti. Praesent a nisi augue. Aenean et accumsan lectus. Duis aliquam lobortis enim, non porttitor ipsum rhoncus ut. Donec in fringilla ligula, sed congue massa.
+              <em>Knigge</em> ist die Einladung gemeinsam ein Werk entstehen zu lassen. Deshalb gestatten Sie hoffentlich die Aufzeichnung Ihres Chatverlaufs mit <em>Knigge</em>. So kann dieses Werk auch über jene Momente, die Sie mit dem Chatbot haben, hinaus wirken, wenn der Chat in Auszügen oder gesamt z.B. im Rahmen einer Austellung oder Veröffentlichung präsentiert wird. Weiters kann Ihr Chatverlauf auch als Grundlage dienen, den Wortschatz von <em>Knigge</em> zu erweitern.
+            </p>
+            <p>
+              Der Code des Chatbots wird lokal auf Ihrem Gerät ausgeführt. Ist die Aufzeichnung des Chats gestattet, werden Ihre eingegebenen Texte mit Zeitstempel auf den Server von knigge.chat (Serverstandort ist Deutschland) übertragen und ohne Verbindungsdaten abgespeichert. Damit ist kein Rückschluß darüber möglich, wer von wo mit <em>Knigge</em> gechattet hat. Dies bedeutet allerdings auch, dass nachträgliche Löschungen nicht möglich sind. Sollten im Chatverlauf personenbezogene Angaben geschehen, wird im Falle einer Veröffentlichung darauf Rücksicht genommen, diese möglichst zu entfernen.
             </p>
           </b-col>
         </b-row>
@@ -164,13 +185,13 @@
         <b-row>
           <b-col lg="9">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Was Medien berichten und was sich für einen digitalen Besuch zu Hintergründen anbietet:
             </p>
           </b-col>
         </b-row>
-        <b-row class="mt-2">
+        <!-- <b-row class="mt-2">
           <b-col lg="3">
-            <p>PRESSE</p>
+            <p>MEDIEN</p>
           </b-col>
           <b-col lg="8">
             <p>
@@ -180,23 +201,18 @@
               <a href="#">"Ich unterhalte mich gerne – mit Computern. Aber auch mit Menschen"</a> – <em>Falter</em>
             </p>
           </b-col>
-        </b-row>
+        </b-row> -->
         <b-row class="mt-2 about-section-margin">
           <b-col lg="3">
-            <p>HINTERGRUND</p>
+            <p>HINTERGRÜNDE</p>
           </b-col>
           <b-col lg="8">
             <p>
-              <a href="#">Adolph Freiherr Knigge</a> – <em>Wikipedia</em><br>
-              <a href="#">Was sind Chatbots?</a> – <em>Wikipedia</em><br>
-              <a href="#">Erster Chatbot gewinnt Goldene Nica</a> – <em>Ars Electronica</em><br>
-              <a href="#">Über's Reden reden</a> – <em>Kulturverein</em><br>
-              <a href="#">Computer Conversations (1965)</a> – <em>MIT Archiv</em><br>
-              <a href="#">Adolph Freiherr Knigge</a> – <em>Wikipedia</em><br>
-              <a href="#">Was sind Chatbots?</a> – <em>Wikipedia</em><br>
-              <a href="#">Erster Chatbot gewinnt Goldene Nica</a> – <em>Ars Electronica</em><br>
-              <a href="#">Über's Reden reden</a> – <em>Kulturverein</em><br>
-              <a href="#">Computer Conversations (1965)</a> – <em>MIT Archiv</em>
+              <a href="https://islandrabe.com/projekte/knigge" target="_blank">Projektseite „Knigge“ </a> – <em>Islandrabe</em><br>
+              <a href="https://islandrabe.com/projekte/zwischenmenschen/" target="_blank">Projektseite „Was ist zwischen den Menschen“</a> – <em>Islandrabe</em><br>
+              <a href="https://www.projekt-gutenberg.org/knigge/umgang/umgang.html">„Über den Umgang mit Menschen“ von Adolph Freiherr von Knigge</a> – <em>Projekt Gutenberg</em><br>
+              <a href="https://sites.google.com/view/elizagen-org/the-original-eliza" target="_blank">Code zu ELIZA von Joseph Weizenbaum aus dem Jahr 1966 mit weiterführenden Informationen</a> – <em>Jeff Shrager; MIT Libraries</em><br>
+              <a href="https://github.com/StudioProcess/eliza-js" target="_blank">Code für Knigge auf Basis von ELIZA mit Dokumentation auf Github</a> – <em>Process Studio</em><br>
             </p>
           </b-col>
         </b-row>
@@ -211,7 +227,7 @@
         <b-row>
           <b-col lg="9">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nulla arcu, cursus id tellus vitae, aliquam egestas erat. Nunc malesuada eu ipsum nec finibus. Integer posuere nisi erat, sed ornare leo aliquet non. Phasellus scelerisque.
+              Im Informationszeitalter über Kommunikation zu reden, scheint uns sinnvoll:
             </p>
           </b-col>
         </b-row>
@@ -220,19 +236,29 @@
             <p>TEAM</p>
           </b-col>
           <b-col lg="7">
-            <p>Kathi Musterfrau<br>Lorem ipsum dolor sit amet.</p>
-            <p>Max Mustermann<br>Nunc malesuada eu ipsum nec finibus.</p>
-            <p>Max Mustermann<br>Integer posuere nisi erat, sed ornare leo aliquet non.</p>
+            <p>
+              <em>Alex Erler</em> (Projektbegleitung)<br>
+              <a href="https://kv-grammophon.at" target="_blank">Kulturverein Grammophon</a>
+            </p>
+            <p>
+              <em>Martin Grödl</em> &amp; <em>Moritz Resl</em> (Programmierung und Gestaltung)<br>
+              <a href="https://process.studio" target="_blank">Process – Studio for Art and Design</a>
+            </p>
+            <p>
+              <em>Melanie Haberl</em> (Kommunikation und Vermittlung)<br>
+              Studiert Europäische Ethnologie an der Universität Wien und geht im Moment der Frage nach, was zwischen Menschen und Bildschirmen ist.
+            </p>
             <p class="mb-0">
-              Max Mustermann<br>Donec nulla arcu, cursus id tellus vitae.
+              <em>Richard Schwarz</em> (Konzept und Script)<br>
+              Tätig in den Feldern Medienkunst und Kulturwissenschaft. Lebt und werkt in Kufstein. <a href="https://islandrabe.com" target="_blank">islandrabe.com</a>
             </p>
           </b-col>
         </b-row>
-        <b-row class="mt-2 about-section-margin">
-          <b-col lg="5" class="cmpx-0">
-            <img src="https://via.placeholder.com/600x400?text=PLACEHOLDER" width="100%">
+        <b-row class="mt-2 about-section-margin" style="padding:1em">
+          <b-col lg="5" class="cmpx-0" style="max-width:440px">
+            <img src="Landeslogo_Transparent_schwarz.png" width="100%">
             <p class="cmpx-10 caption-text mt-2">
-              ELIZA in der Ausstellung UNCANNY VALUES im MAK – Museum für angewandte Kunst, 2019
+              Gefördert durch das Programm „Kunst und Kultur im digitalen Raum“ des Landes Tirols, Abteilung Kultur
             </p>
           </b-col>
         </b-row>
@@ -247,20 +273,18 @@
         <b-row class="about-section-margin">
           <b-col lg="9">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Für alles abseits vom Reden über’s Reden:
             </p>
-            <p>Kathi Musterfrau, <a href="mailto:kathi@kniggeprojekt.at" rel="nofollow">kathi@kniggeprojekt.at</a></p>
+            <p><a href="mailto:brief@knigge.chat" rel="nofollow">brief@knigge.chat</a></p>
           </b-col>
         </b-row>
       </b-container>
     </aside>
     <!-- RECORDING INFO -->
     <div v-if="!presentation && recordingPopoverVisible" id="recording-indicator-info">
-      <p><em>Bevor es losgeht...</em></p>
-      <p>Wir möchten deine Eingaben gerne aufzeichnen. Solltest du damit nicht einverstanden sein, kannst du jederzeit auf den <span class="recording-active">&#9679;</span> roten Kreis klicken. Sobald sich die Farbe von <span class="recording-active">&#9679;</span> rot auf <span class="recording-inactive">&#9679;</span> grau verändert hat, ist die Aufnahme gestoppt.</p>
-      <p class="mb-0">
-        Vielen Dank und viel Spaß!
-      </p>
+      <p><em>Achtung, Kunst!</em></p>
+      <p>Zentral für das Werk <em>Knigge</em> sind die Gespräche, die hier zwischen Mensch und Maschine entstehen. Deshalb sendet die Website Ihre eingegebenen Texte ohne Hinweis auf Ihre Identität an den Server; mehr dazu unter <a href="#" @click="showAbout = true"><img src="info_icon.svg" height="20"> – „Eigener Beitrag und Datenschutz“</a>. Die Aufzeichnung können Sie mittels <span class="recording-active">&#9679;</span>/<span class="recording-inactive">&#9679;</span> auch jederzeit aus- und einschalten.</p>
+
       <button class="popover-close" @click="recordingPopoverVisible = false; setRecordingStateCookie(isRecording)">
         <img src="close_icon.svg" height="28">
       </button>
