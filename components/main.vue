@@ -159,7 +159,7 @@
         <b-row>
           <b-col lg="11">
             <div class="about-top-border" />
-            <h2 class="mb-4">
+            <h2 class="mb-4" id="datenschutz">
               Eigener Beitrag und Datenschutz
             </h2>
           </b-col>
@@ -283,7 +283,7 @@
     <!-- RECORDING INFO -->
     <div v-if="!presentation && recordingPopoverVisible" id="recording-indicator-info">
       <p><em>Achtung, Kunst!</em></p>
-      <p>Zentral für das Werk <em>Knigge</em> sind die Gespräche, die hier zwischen Mensch und Maschine entstehen. Deshalb sendet die Website Ihre eingegebenen Texte ohne Hinweis auf Ihre Identität an den Server; mehr dazu unter <a href="#" @click="showAbout = true"><img src="info_icon.svg" height="20"> – „Eigener Beitrag und Datenschutz“</a>. Die Aufzeichnung können Sie mittels <span class="recording-active">&#9679;</span>/<span class="recording-inactive">&#9679;</span> auch jederzeit aus- und einschalten.</p>
+      <p>Zentral für das Werk <em>Knigge</em> sind die Gespräche, die hier zwischen Mensch und Maschine entstehen. Deshalb sendet die Website Ihre eingegebenen Texte ohne Hinweis auf Ihre Identität an den Server; mehr dazu unter <a href="#datenschutz" @click="showAbout = true"><img src="info_icon.svg" height="20"> – „Eigener Beitrag und Datenschutz“</a>. Die Aufzeichnung können Sie mittels <span class="recording-active">&#9679;</span>/<span class="recording-inactive">&#9679;</span> auch jederzeit aus- und einschalten.</p>
 
       <button class="popover-close" @click="recordingPopoverVisible = false; setRecordingStateCookie(isRecording)">
         <img src="close_icon.svg" height="28">
