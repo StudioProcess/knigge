@@ -127,14 +127,14 @@
             </div>
           </b-col>
         </b-row>
-        <b-row class="about-section-margin">
+        <!-- <b-row class="about-section-margin">
           <b-col lg="5" offset-lg="6" class="cmpx-0">
             <img src="https://via.placeholder.com/600x400?text=PLACEHOLDER" width="100%">
             <p class="caption-text mt-2 cmpx-10">
               ELIZA in der Ausstellung UNCANNY VALUES im MAK – Museum für angewandte Kunst, 2019
             </p>
           </b-col>
-        </b-row>
+        </b-row> -->
         <b-row>
           <b-col lg="11">
             <div class="about-top-border" />
@@ -255,7 +255,7 @@
           </b-col>
         </b-row>
         <b-row class="mt-2 about-section-margin" style="padding:1em">
-          <b-col lg="5" class="cmpx-0" style="max-width:440px">
+          <b-col lg="5" class="cmpx-0" style="max-width:330px">
             <img src="Landeslogo_Transparent_schwarz.png" width="100%">
             <p class="cmpx-10 caption-text mt-2">
               Gefördert durch das Programm „Kunst und Kultur im digitalen Raum“ des Landes Tirols, Abteilung Kultur
@@ -283,7 +283,7 @@
     <!-- RECORDING INFO -->
     <div v-if="!presentation && recordingPopoverVisible" id="recording-indicator-info">
       <p><em>Achtung, Kunst!</em></p>
-      <p>Zentral für das Werk <em>Knigge</em> sind die Gespräche, die hier zwischen Mensch und Maschine entstehen. Deshalb sendet die Website Ihre eingegebenen Texte ohne Hinweis auf Ihre Identität an den Server; mehr dazu unter <a href="#datenschutz" @click="showAbout = true"><img src="info_icon.svg" height="20"> – „Eigener Beitrag und Datenschutz“</a>. Die Aufzeichnung können Sie mittels <span class="recording-active">&#9679;</span>/<span class="recording-inactive">&#9679;</span> auch jederzeit aus- und einschalten.</p>
+      <p>Zentral für das Werk <em>Knigge</em> sind die Gespräche, die hier zwischen Mensch und Maschine entstehen. Deshalb sendet die Website Ihre eingegebenen Texte ohne Hinweis auf Ihre Identität an den Server; mehr dazu unter <a href="#datenschutz" @click="showAbout = true">„Eigener Beitrag und Datenschutz“</a>. Die Aufzeichnung können Sie mittels <span class="recording-active">&#9679;</span>/<span class="recording-inactive">&#9679;</span> auch jederzeit aus- und einschalten.</p>
 
       <button class="popover-close" @click="recordingPopoverVisible = false; setRecordingStateCookie(isRecording)">
         <img src="close_icon.svg" height="28">
