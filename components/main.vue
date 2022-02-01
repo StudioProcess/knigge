@@ -146,20 +146,20 @@
         <b-row class="about-section-margin">
           <b-col lg="9">
             <p>
-              <em>Knigge</em> ist das Resultat des Projekts <a href="https://islandrabe.com/projekte/zwischenmenschen/" target="_blank">„Was ist zwischen den Menschen“</a>, bei dem in verschiedenen Formaten gemeinsam über Zwischenmenschliches nachgedacht wurde. <em>Knigge</em> ist befüllt mit Eindrücken daraus und so gibt er im Gespräch auch einen Einblick in das bisher Gesagt- und Gedachte.<br>
+              <em>Knigge</em> ist das Resultat des Projekts „<a href="https://islandrabe.com/projekte/zwischenmenschen/" target="_blank">Was ist zwischen den Menschen</a>“, bei dem in verschiedenen Formaten gemeinsam über Zwischenmenschliches nachgedacht wurde. <em>Knigge</em> ist befüllt mit Eindrücken daraus und so gibt er im Gespräch auch einen Einblick in das bisher Gesagte und Gedachte.<br>
             </p>
             <p>
               Die Chats mit <em>Knigge</em> werden in anonymisierter Form aufgezeichnet und fließen ihrerseits wiederum in sein Skript ein: Die Sammlung wächst somit ständig weiter und jeder Dialog wird selbst zum Teil des Gesamtkunstwerks.
             </p>
             <p>
-              Im Zentrum steht dabei Kommunikation, die Grundbedingung dafür, dass Menschen gemeinsame Wege finden. Sie ist allgegenwärtig und zugleich selten im Fokus von Beobachtungen, Erfahrungen und Wünschen. <em>Knigge</em> ist hier Sammelnder und Vermittelnder zugleich, dient aber in erster Linie keinem Zweck, denn er hat sich selbst zum Zweck: Das Gespräch mit ihm soll unterhalten, Anregungen bieten und zu Antworten führen, ob und wie wir uns im Kommunizieren wohl fühlen.
+              Im Zentrum steht dabei Kommunikation – die Grundbedingung dafür, dass Menschen gemeinsame Wege finden. Sie ist allgegenwärtig und zugleich selten im Fokus von Beobachtungen, Erfahrungen und Wünschen. <em>Knigge</em> ist hier Sammelnder und Vermittelnder zugleich, dient aber in erster Linie keinem Zweck, denn er hat sich selbst zum Zweck: Das Gespräch mit ihm soll unterhalten, Anregungen bieten und zu Antworten führen, ob und wie wir uns im Kommunizieren wohl fühlen.
             </p>
           </b-col>
         </b-row>
         <b-row>
           <b-col lg="11">
             <div class="about-top-border" />
-            <h2 class="mb-4" id="datenschutz">
+            <h2 id="datenschutz" class="mb-4">
               Eigener Beitrag und Datenschutz
             </h2>
           </b-col>
@@ -167,10 +167,10 @@
         <b-row class="about-section-margin">
           <b-col lg="9">
             <p>
-              <em>Knigge</em> ist die Einladung gemeinsam ein Werk entstehen zu lassen. Deshalb gestatten Sie hoffentlich die Aufzeichnung Ihres Chatverlaufs mit <em>Knigge</em>. So kann dieses Werk auch über jene Momente, die Sie mit dem Chatbot haben, hinaus wirken, wenn der Chat in Auszügen oder gesamt z.B. im Rahmen einer Austellung oder Veröffentlichung präsentiert wird. Weiters kann Ihr Chatverlauf auch als Grundlage dienen, den Wortschatz von <em>Knigge</em> zu erweitern.
+              <em>Knigge</em> ist die Einladung, gemeinsam ein Werk entstehen zu lassen. Deshalb gestatten Sie hoffentlich die Aufzeichnung Ihres Chatverlaufs mit <em>Knigge</em>. So kann dieses Werk auch über jene Momente, die Sie mit dem Chatbot haben, hinaus wirken, wenn der Chat in Auszügen oder gesamt z.B. im Rahmen einer Ausstellung oder Veröffentlichung präsentiert wird. Weiters kann Ihr Chatverlauf auch als Grundlage dienen, um den Wortschatz von <em>Knigge</em> zu erweitern.
             </p>
             <p>
-              Der Code des Chatbots wird lokal auf Ihrem Gerät ausgeführt. Ist die Aufzeichnung des Chats gestattet, werden Ihre eingegebenen Texte mit Zeitstempel auf den Server von knigge.chat (Serverstandort ist Deutschland) übertragen und ohne Verbindungsdaten abgespeichert. Damit ist kein Rückschluss darüber möglich, wer von wo mit <em>Knigge</em> gechattet hat. Dies bedeutet allerdings auch, dass nachträgliche Löschungen nicht möglich sind. Sollten im Chatverlauf personenbezogene Angaben geschehen, wird im Falle einer Veröffentlichung darauf Rücksicht genommen, diese möglichst zu entfernen.
+              Der Code des Chatbots wird lokal auf Ihrem Gerät ausgeführt. Ist die Aufzeichnung des Chats gestattet, werden Ihre eingegebenen Texte mit einem Zeitstempel auf den Server von knigge.chat (Serverstandort ist Deutschland) übertragen und ohne Verbindungsdaten abgespeichert. Damit ist kein Rückschluss darüber möglich, wer von wo mit <em>Knigge</em> gechattet hat. Das bedeutet allerdings auch, dass nachträgliche Löschungen nicht möglich sind. Sollten im Chatverlauf personenbezogene Angaben geschehen, wird im Falle einer Veröffentlichung darauf Rücksicht genommen, diese möglichst zu entfernen.
             </p>
           </b-col>
         </b-row>
@@ -208,8 +208,8 @@
           </b-col>
           <b-col lg="8">
             <p>
-              <a href="https://islandrabe.com/projekte/knigge" target="_blank">Projektseite „Knigge“ </a> – <em>Islandrabe</em><br>
-              <a href="https://islandrabe.com/projekte/zwischenmenschen/" target="_blank">Projektseite „Was ist zwischen den Menschen“</a> – <em>Islandrabe</em><br>
+              <!-- <a href="https://islandrabe.com/projekte/knigge" target="_blank">Projektseite „Knigge“ </a> – <em>islandrabe</em><br> -->
+              <a href="https://islandrabe.com/projekte/zwischenmenschen/" target="_blank">Projektseite „Was ist zwischen den Menschen“</a> – <em>islandrabe</em><br>
               <a href="https://www.projekt-gutenberg.org/knigge/umgang/umgang.html">„Über den Umgang mit Menschen“ von Adolph Freiherr von Knigge</a> – <em>Projekt Gutenberg</em><br>
               <a href="https://sites.google.com/view/elizagen-org/the-original-eliza" target="_blank">Code zu ELIZA von Joseph Weizenbaum aus dem Jahr 1966 mit weiterführenden Informationen</a> – <em>Jeff Shrager; MIT Libraries</em><br>
               <a href="https://github.com/StudioProcess/eliza-js" target="_blank">Code für Knigge auf Basis von ELIZA mit Dokumentation auf Github</a> – <em>Process Studio</em><br>
@@ -238,11 +238,11 @@
           <b-col lg="7">
             <p>
               <em>Alex Erler</em> (Projektbegleitung)<br>
-              <a href="https://kv-grammophon.at" target="_blank">Kulturverein Grammophon</a>
+              Baut zurzeit im Neuwirt in Wattens ein Kultur- und Gemeinschaftshaus auf, das Menschen ins gemeinsame Tun und Reden bringt. <a href="https://neuwirt-wattens.at" target="_blank">neuwirt-wattens.at</a>
             </p>
             <p>
-              <em>Martin Grödl</em> &amp; <em>Moritz Resl</em> (Programmierung und Gestaltung)<br>
-              <a href="https://process.studio" target="_blank">Process – Studio for Art and Design</a>
+              <em>Martin Grödl</em> &amp; <em>Moritz Resl</em> (Programmierung und Gestaltung) mit <a href="https://www.laurentlang.com" target="_blank"><em>Laurent Lang</em></a> (Webentwicklung)<br>
+              Entwickeln generatives und interaktives Design als <a href="https://process.studio" target="_blank">Process – Studio for Art and Design</a>.
             </p>
             <p>
               <em>Melanie Haberl</em> (Kommunikation und Vermittlung)<br>
@@ -258,7 +258,7 @@
           <b-col lg="5" class="cmpx-0" style="max-width:330px">
             <img src="Landeslogo_Transparent_schwarz.png" width="100%">
             <p class="cmpx-10 caption-text mt-2">
-              Gefördert durch das Programm „Kunst und Kultur im digitalen Raum“ des Landes Tirols, Abteilung Kultur
+              Gefördert vom Land Tirol – Covid-19 Soforthilfefonds Kultur – Kunst und Kultur im digitalen Raum
             </p>
           </b-col>
         </b-row>
