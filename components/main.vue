@@ -94,7 +94,7 @@
               Wer ist Knigge?
             </h2>
             <p>
-              <em>Knigge</em> ist ein Chatbot, der über’s Reden reden will. Er – der Chatbot – sucht das Gespräch über Erfahrungen mit und Vorstellungen von gelungener Kommunikation.
+              <em>Knigge</em> ist ein Chatbot, programmiert, um über's Reden zu chatten. Er – der Chatbot – bietet ein mechanisches Gegenüber, um für einen selbst Erfahrungen mit und Vorstellungen von gelungener Kommunikation bewusst werden zu lassen.
             </p>
             <p>
               Sein Name geht zurück auf den Schriftsteller Adolph Freiherr von Knigge (1752–1796), der sich in seinem Werk „Über den Umgang mit Menschen“ (kurz auch „der Knigge“ genannt) Gedanken darüber machte, wie ein Miteinander gestaltet werden kann.
@@ -116,7 +116,7 @@
                 Wer ist Knigge?
               </h2>
               <p>
-                <em>Knigge</em> ist ein Chatbot, der über’s Reden reden will. Er – der Chatbot – sucht das Gespräch über Erfahrungen mit und Vorstellungen von gelungener Kommunikation.
+                <em>Knigge</em>  ist ein Chatbot, programmiert, um über's Reden zu chatten. Er – der Chatbot – bietet ein mechanisches Gegenüber, um für einen selbst Erfahrungen mit und Vorstellungen von gelungener Kommunikation bewusst werden zu lassen.
               </p>
               <p>
                 Sein Name geht zurück auf den Schriftsteller Adolph Freiherr von Knigge (1752–1796), der sich in seinem Werk „Über den Umgang mit Menschen“ (kurz auch „der Knigge“ genannt) Gedanken darüber machte, wie ein Miteinander gestaltet werden kann.
@@ -185,23 +185,10 @@
         <b-row>
           <b-col lg="9">
             <p>
-              Was Medien berichten und was sich für einen digitalen Besuch zu Hintergründen anbietet:
+              Was sich für einen digitalen Besuch zu Hintergründen anbietet und Medien berichteten:
             </p>
           </b-col>
         </b-row>
-        <!-- <b-row class="mt-2">
-          <b-col lg="3">
-            <p>MEDIEN</p>
-          </b-col>
-          <b-col lg="8">
-            <p>
-              <a href="#">"Schaut euch diesen Gesprächspartner an"</a> – <em>Der Standard</em><br>
-              <a href="#">"Ich unterhalte mich gerne – mit Computern"</a> – <em>Die Zeit</em><br>
-              <a href="#">"Schaut euch diesen Gesprächspartner an"</a> – <em>Kurier</em><br>
-              <a href="#">"Ich unterhalte mich gerne – mit Computern. Aber auch mit Menschen"</a> – <em>Falter</em>
-            </p>
-          </b-col>
-        </b-row> -->
         <b-row class="mt-2 about-section-margin">
           <b-col lg="3">
             <p>HINTERGRÜNDE</p>
@@ -209,10 +196,25 @@
           <b-col lg="8">
             <p>
               <!-- <a href="https://islandrabe.com/projekte/knigge" target="_blank">Projektseite „Knigge“ </a> – <em>islandrabe</em><br> -->
-              <a href="https://islandrabe.com/projekte/zwischenmenschen/" target="_blank">Projektseite „Was ist zwischen den Menschen“</a> – <em>islandrabe</em><br>
-              <a href="https://www.projekt-gutenberg.org/knigge/umgang/umgang.html">„Über den Umgang mit Menschen“ von Adolph Freiherr von Knigge</a> – <em>Projekt Gutenberg</em><br>
-              <a href="https://sites.google.com/view/elizagen-org/the-original-eliza" target="_blank">Code zu ELIZA von Joseph Weizenbaum aus dem Jahr 1966 mit weiterführenden Informationen</a> – <em>Jeff Shrager; MIT Libraries</em><br>
-              <a href="https://github.com/StudioProcess/eliza-js" target="_blank">Code für Knigge auf Basis von ELIZA mit Dokumentation auf Github</a> – <em>Process Studio</em><br>
+              <a href="https://islandrabe.com/projekte/zwischenmenschen/" target="_blank">Projektseite „Was ist zwischen den Menschen“</a> – <em>islandrabe</em><br> 
+              <a href="https://www.projekt-gutenberg.org/knigge/umgang/umgang.html"  target="_blank">„Über den Umgang mit Menschen“</a> von Adolph Freiherr von Knigge, 1788 – <em>Projekt Gutenberg</em><br> 
+              <a href="https://archive.org/details/computerpowerhum0000weiz_v0i3"  target="_blank">„Computer Power and Human Reason. From Judgment to Calculation“</a> von Joseph Weizenbaum, 1976 – <em>Internet Archive</em><br> 
+              <a href="https://sites.google.com/view/elizagen-org/the-original-eliza" target="_blank">Code zu ELIZA von Joseph Weizenbaum</a> aus dem Jahr 1966 mit weiterführenden Informationen – <em>Jeff Shrager; MIT Libraries</em><br> 
+              <a href="https://academic.oup.com/mind/article-pdf/LIX/236/433/9866119/433.pdf"  target="_blank">„Computing Machinery and Intelligence“</a> von Alan Turing, 1950 – <em>Mind, A quarterly review of Psychology and Philosophy</em><br> 
+              <a href="https://github.com/StudioProcess/eliza-js" target="_blank">Code für Knigge auf Basis von ELIZA</a> mit Dokumentation auf Github – <em>Process Studio</em><br>
+            </p>
+          </b-col>
+        </b-row>
+        <b-row class="mt-2">
+          <b-col lg="3">
+            <p>MEDIEN</p>
+          </b-col>
+          <b-col lg="8">
+            <p>
+              <a href="media/2022_04_09-tt.pdf" target="_blank">"Chatten übers Reden"</a>, <em>Tiroler Tageszeitung (09.04.2022)</em><br> 
+              <a href="media/2022_04_21-krone.pdf" target="_blank">"Menschliche und unmenschliche Kommunikation"</a>, <em>Tiroler Kronenzeitung (21.04.2022)</em><br> 
+              <a href="https://www.meinbezirk.at/kufstein/c-lokales/kufsteiner-medienkuenstler-untersucht-kommunikation_a5304952" target="_blank">"Kufsteiner Medienkünstler untersucht Kommunikation"</a>, <em>meinbezirk.at (27.04.2022)</em><br> 
+              <a href="media/2022_04_27-kufsteinblick.pdf" target="_blank">"Chatbot Knigge: Ein 'gutes' Gespräch als Kunst"</a>, <em>Kufsteinblick (27.04.2022)</em><br>
             </p>
           </b-col>
         </b-row>
@@ -273,7 +275,7 @@
         <b-row class="about-section-margin">
           <b-col lg="9">
             <p>
-              Für alles abseits vom Reden über’s Reden:
+              Für alles rund um das Chatten über’s Reden: 
             </p>
             <p><a href="mailto:brief@knigge.chat" rel="nofollow">brief@knigge.chat</a></p>
           </b-col>
