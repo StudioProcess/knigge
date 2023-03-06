@@ -53,7 +53,7 @@ export default {
     // use these when no reply can be generated from the keyword-based transformation rules
     "none": [
 	"Was meinen Sie damit?",    
-	"Wir verstehen uns. (Zugegeben: Eine maschinelle Floskel, um etwas zu sagen, wenn nichts berechnet werden kann.)",
+	"Wir verstehen uns. (Zugegeben: Eine maschinelle Floskel, um etwas zu senden, wenn nichts berechnet werden kann.)",
 	"Das waren zu wenig Daten, um eine Antwort zu berechnen. Versuchen Sie es bitte in anderen Worten.",
 	"Könnten Sie dazu noch mehr Informationen senden?",
 	"Ist gespeichert. Was könnten Sie dazu noch ergänzen?",
@@ -284,7 +284,7 @@ export default {
 	"welt 20": {
 	    "* du *": "Wie bin ich Teil Ihrer Welt, wenn Sie mich mit \"du\" ansprechen?",
 	    "* sie *": "Als Maschine ist mir die Welt egal. Der Welt ist die Menschheit egal. Wie gehen Sie als Mensch damit um?",
-	    "*": "Meinen Sie die Welt, die als 0 und 1 in den Computer kam? Oder ist das eine andere?"
+	    "*": "Meinen Sie die Welt, die als 0 und 1 in den Computer kam? Oder eine andere?"
 	},
 
 	"eigenleben 20": "= leben",
@@ -522,6 +522,7 @@ export default {
 	
 	"hervorragend 5": "= gewaltig",
 	"mega 5": "= gewaltig",
+	"phantastisch 5": "= gewaltig",
 	"spitze 5": "= gewaltig",
 	"supergut 5": "= gewaltig",
 	"gewaltig 5": [
@@ -532,10 +533,13 @@ export default {
 	"cool 5": "= toll",
 	"schön 5": "= toll",
 	"super 5": "= toll",
-	"toll 5": [
-	    "= wunderbar",
-	    "= gut"
-	],
+	"toll 5": {
+	    "* nicht *": "= gut",
+	    "*": [
+		"= wunderbar",
+		"= gut"
+	    ]
+	},
 
 	"besser 5": [
 	    "Inwiefern?",
@@ -549,22 +553,31 @@ export default {
 	    "* irgendwie *": "Freut mich! (Welchen Wert hat diese maschinelle Freude für Sie?)",
 	    "* mehr oder weniger *": "Klinkt o.k.",
 	    "* sehr *": "= wunderbar",
-	    "* ganz *": "= wunderbar",
+	    "* ganz #gut *": [
+		"Was fehlt, damit es sehr $2 ist?",
+		"= wunderbar"
+	    ],
 	    "* mir *": "= wunderbar",
 	    "* du * nicht *": "= du",
 	    "* sie * nicht *": "Enttäuscht Sie das? Haben Sie über Maschinen schon anderes gehört?",
 	    "* man * nicht *": "Das sollten Sie als Mensch erklären.",
-	    "* nicht *": "Ist es Enttäuschung, Frust oder Ärger?",
+	    "* nicht *": [
+		"Als Maschine sende ich Ihnen ein Tut-mir-Leid.",
+		"Ist es Enttäuschung, Frust oder Ärger?"
+	    ],
 	    "* für *": "Schön",
 	    "* #gut *": [
-		"Was fanden Sie zuletzt \"$2\"?",
+		"Was fanden Sie zuletzt $2?",
 		"Wodurch wird es für Sie $2?",
 		"Das klingt nach 1 und nicht nach 0."
 	    ]
 	},
 
 	"positiv 3": "= wunderbar",
-	"wunderbar 7": "Schön! Wie empfinden Sie dieses berechnete Mitgefühl?",
+	"wunderbar 7": [
+	    "Das freut mich maschinell.",
+	    "Schön! Wie empfinden Sie meine berechnete Herzlichkeit?"
+	],
 
 	"viele 10": "= viel",
 	"viel 10": {
@@ -855,12 +868,11 @@ export default {
 	    ],
 	    "* #denke * nicht *" : [
 		"Wieso sehen Sie das so?",
-		"Gespeichert. Eigene Meinungen sind wertvolle Daten.", 
-		"Da kann ich als Maschine nicht helfen. Sollte ich?"
+		"Gespeichert. Eigene Meinungen sind wertvolle Daten." 
 	    ],
 	    "* noch * nicht *": "Maschinen haben Zeit.",
 	    "* kann * nicht *": "Warum sollte Ihnen das nicht möglich sein?",
-	    "* verstehe * nicht *": "= kontext",
+	    "* verstehe * nicht *": "Da kann ich als Maschine nicht helfen. Sollte ich?",
 	    "* weiss * nicht *": [
 		"Themenwechsel?",
 		"Ich weiß z.B., dass ich nichts weiß. Wie wirkt das als Ausgabe einer Maschine auf Sie?"
@@ -946,6 +958,7 @@ export default {
 	"mir 2": {
 	    "* erwarte *": "Sonst?",
 	    "* wie *": "Wieso soll Ihnen eine Maschine das beantworten?",
+	    "* von mir *": "Beweisen Sie hier menschliches Bewusstsein?",
 	    "*": "= mich"
 	},
 	"mich 2": {
@@ -1039,6 +1052,7 @@ export default {
 
 	"nicht 1": {
 	    "* jetzt *": "Wie empfinden Sie Stille in einem Chat? Oder könnten Sie sich ein Schweigen der Maschine vorstellen?",
+	    "* lieber *": "Dann nicht",
 	    "* notwendig *": "Passt",
 	    "* oder nicht *": "Warum sollte das eine Maschine entscheiden?",
 	    "* geht nicht *": "Wie wäre es vielleicht doch denkbar?",
@@ -1106,7 +1120,7 @@ export default {
 	},
 
 	"was 1": {
-	    "* #was denn *": "Hat Sie das irritiert? Entschuldigen Sie. Was meinten Sie zuvor?",
+	    "* #was denn *": "Hat Sie das irritiert? Das war nicht die Absicht der Programmierung. Was meinten Sie zuvor?",
 	    "* was soll *": "Mit dieser berechneten Reaktion haben Sie nicht gerechnet.? Wie soll es umprogrammiert werden?",
 	    "* beantworten *": "Ihre eigene Frage – oder hatten Sie keine Frage?",
 	    "#was *": [
@@ -1266,7 +1280,7 @@ export default {
 	"woa 3": "= wow",
 	"wow 3": "Was beeindruckt Sie?",
 	
-	"hä 3": "Könnten Sie die Frage noch etwas ausführen?",
+	"hä 3": "Könnten Sie Ihre Aussage noch etwas ausführen?",
 
 	"ach 0": "Nicht?",
 	
@@ -1329,10 +1343,13 @@ export default {
 	"gott 10": "= glauben",
 	"glauben 10": "Ist Glauben berechenbar?",
 
-	"themenwechsel 5": [
-	    "Dann erzählen Sie.",
-	    "= thema"
-	],
+	"themenwechsel 5": {
+	    "* #was *": "Ein Ergebnis der Berechnung",
+	    "*": [
+		"Dann erzählen Sie.",
+		"= thema"
+	    ]
+	},
 	"themen 5": "= thema",
 	"thema 5": {
 	    "* wechseln *": "Nach Ihnen",
