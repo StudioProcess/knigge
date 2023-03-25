@@ -195,13 +195,13 @@
           </b-col>
           <b-col lg="8">
             <p>
-              <!-- <a href="https://islandrabe.com/projekte/knigge" target="_blank">Projektseite „Knigge“ </a> – <em>islandrabe</em><br> -->
-              <a href="https://islandrabe.com/projekte/zwischenmenschen/" target="_blank">Projektseite „Was ist zwischen den Menschen“</a> – <em>islandrabe</em><br> 
               <a href="https://www.projekt-gutenberg.org/knigge/umgang/umgang.html"  target="_blank">„Über den Umgang mit Menschen“</a> von Adolph Freiherr von Knigge, 1788 – <em>Projekt Gutenberg</em><br> 
               <a href="https://archive.org/details/computerpowerhum0000weiz_v0i3"  target="_blank">„Computer Power and Human Reason. From Judgment to Calculation“</a> von Joseph Weizenbaum, 1976 – <em>Internet Archive</em><br> 
               <a href="https://sites.google.com/view/elizagen-org/the-original-eliza" target="_blank">Code zu ELIZA von Joseph Weizenbaum</a> aus dem Jahr 1966 mit weiterführenden Informationen – <em>Jeff Shrager; MIT Libraries</em><br> 
               <a href="https://academic.oup.com/mind/article-pdf/LIX/236/433/9866119/433.pdf"  target="_blank">„Computing Machinery and Intelligence“</a> von Alan Turing, 1950 – <em>Mind, A quarterly review of Psychology and Philosophy</em><br> 
+              <a href="media/melanie_haberl-mit_vergnuegen.pdf" target="_blank">Mit Vergnügen: Das „gute“ Gespräch als Spiel. Unterhaltung durch und mit Chatbots</a> von Melanie Haberl, 2023<br>
               <a href="https://github.com/StudioProcess/eliza-js" target="_blank">Code für Knigge auf Basis von ELIZA</a> mit Dokumentation auf Github – <em>Process Studio</em><br>
+              <a href="https://islandrabe.com/projekte/zwischenmenschen/" target="_blank">Projektseite „Was ist zwischen den Menschen“</a> – <em>islandrabe</em><br> 
             </p>
           </b-col>
         </b-row>
