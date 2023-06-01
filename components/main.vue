@@ -324,8 +324,8 @@ export default {
       recordingPopoverVisible: true,
       isRecording: false,
       isRecordingCookieExpiration: 2,
-      userInteractionEventListeners: ['mousedown', 'mouseover', 'touchstart', 'scroll', 'keydown', 'visibilitychange'],
-      noUserInteractionTimeout: 10000, // presentation mode: time since last user interaction before chat reset (in ms)
+      userInteractionEventListeners: ['mousedown', 'mousemove', 'touchstart', 'scroll', 'keydown', 'visibilitychange'],
+      noUserInteractionTimeout: 300_000, // presentation mode: time since last user interaction before chat reset (in ms)
       lastUserInteractionTimer: undefined,
       lastUserInteractionElapsedTime: 0
     }
@@ -571,6 +571,7 @@ export default {
       this.lastUserInteractionElapsedTime = 0
     },
     resetUserInteractionTimer () {
+      console.log('RESET')
       this.stopUserInteractionTimer()
       this.startUserInteractionTimer()
     },
