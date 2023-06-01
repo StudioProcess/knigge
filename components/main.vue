@@ -11,14 +11,14 @@
           </b-col>
           <b-col class="text-center">
             <button
-              v-if="!presentation"
+              v-if="enableHeader"
               id="recording-indicator"
               :class="isRecording ? 'active' : 'inactive'"
               @click="toggleRecordingState()"
             />
           </b-col>
           <b-col class="text-right">
-            <button v-if="!presentation" @click="showAbout = true">
+            <button v-if="enableHeader" @click="showAbout = true">
               <img src="info_icon.svg" height="39">
             </button>
           </b-col>
@@ -283,7 +283,7 @@
       </b-container>
     </aside>
     <!-- RECORDING INFO -->
-    <div v-if="!presentation && recordingPopoverVisible" id="recording-indicator-info">
+    <div v-if="enableInsert && recordingPopoverVisible" id="recording-indicator-info">
       <p><em>Achtung, Kunst!</em></p>
       <p>Zentral für das Werk <em>Knigge</em> sind die Gespräche, die hier zwischen Mensch und Maschine entstehen. Deshalb sendet die Website Ihre eingegebenen Texte ohne Hinweis auf Ihre Identität an den Server; mehr dazu unter <a href="#datenschutz" @click="showAbout = true">„Eigener Beitrag und Datenschutz“</a>. Die Aufzeichnung können Sie mittels <span class="recording-active">&#9679;</span>/<span class="recording-inactive">&#9679;</span> auch jederzeit aus- und einschalten.</p>
 
@@ -308,6 +308,9 @@ export default {
       loaded: false,
       chatEnded: false,
       showAbout: false,
+      enableHeader: true, // show recording and info buttons?
+      enableInsert: true, // show recording popover?
+      enableReset: false, // automatically reset on inactivity?
       isMobile: false,
       // Chatbot
       chatInput: '',
@@ -339,6 +342,15 @@ export default {
     }
   },
   async mounted () {
+    if (this.$props.presentation) { // presentation mode is triggered by route /show
+      this.enableHeader = false
+      this.enableInsert = false
+      this.enableReset = true
+    } else {
+      this.enableHeader = this.queryFlag('header', this.enableHeader)
+      this.enableInsert = this.queryFlag('insert', this.enableInsert)
+      this.enableReset = this.queryFlag('reset', this.enableReset)
+    }
     this.loaded = true
     this.recordingPopoverVisible = !this.$cookie.get('knigge_rec')
     this.isMobile = document.querySelector('body').classList.contains('mobile-browser')
@@ -351,7 +363,7 @@ export default {
     await this.getInitialMessages()
   },
   destroyed () {
-    if (this.$props.presentation) {
+    if (this.enableReset) {
       this.stopUserInteractionTimer()
       this.stopListeningForUserInteraction()
     }
@@ -366,7 +378,7 @@ export default {
     },
     // Get initial chatbot messages
     async getInitialMessages () {
-      if (this.$props.presentation) {
+      if (this.enableReset) {
         this.stopUserInteractionTimer()
         this.stopListeningForUserInteraction()
       }
@@ -382,7 +394,7 @@ export default {
         this.botInitialMessages.push('bot: ' + message)
         this.replaceTypingIndicatorByMessage(message)
       }
-      if (this.$props.presentation) {
+      if (this.enableReset) {
         // this.startUserInteractionTimer() // don't start timer immediately (without interaction)
         this.startListeningForUserInteraction()
       }
@@ -415,7 +427,7 @@ export default {
         this.chatInput = ''
         document.querySelector('input').disabled = true
         this.chatEnded = true
-        if (this.$props.presentation) {
+        if (this.enableReset) {
           this.stopUserInteractionTimer()
           this.stopListeningForUserInteraction()
           await this.timeout(5000)
@@ -523,7 +535,7 @@ export default {
       await this.$axios.$get(`${this.apiUrl}/session`).then((response) => {
         this.loggerSessionToken = response.session
         // eslint-disable-next-line
-        this.isRecording = this.$props.presentation ? true : (this.$cookie.get('knigge_rec') && this.$cookie.get('knigge_rec') === 'false' ? false : true)
+        this.isRecording = this.enableReset ? true : (this.$cookie.get('knigge_rec') && this.$cookie.get('knigge_rec') === 'false' ? false : true)
       }).catch((error) => {
         if (error.response) {
           // eslint-disable-next-line
@@ -554,7 +566,7 @@ export default {
         })
       }
     },
-    // User interaction timer (for presentation mode)
+    // User interaction timer (for Inactivity Reset)
     startListeningForUserInteraction () {
       this.userInteractionEventListeners.forEach(x => document.addEventListener(x, this.resetUserInteractionTimer))
     },
@@ -571,7 +583,6 @@ export default {
       this.lastUserInteractionElapsedTime = 0
     },
     resetUserInteractionTimer () {
-      console.log('RESET')
       this.stopUserInteractionTimer()
       this.startUserInteractionTimer()
     },
@@ -628,6 +639,16 @@ export default {
       if (this.isMobile) {
         document.body.classList.remove('keyboard')
       }
+    },
+    queryFlag (key, fallback = false) {
+      if (!(key in this.$route.query)) {
+        return fallback
+      }
+      let val = this.$route.query[key]
+      if (typeof val === 'string') {
+        val = val.toLowerCase()
+      }
+      return !['0', 'off', 'false', ''].includes(val)
     }
   }
 }
