@@ -195,13 +195,13 @@
           </b-col>
           <b-col lg="8">
             <p>
-              <a href="https://www.projekt-gutenberg.org/knigge/umgang/umgang.html"  target="_blank">„Über den Umgang mit Menschen“</a> von Adolph Freiherr von Knigge, 1788 – <em>Projekt Gutenberg</em><br> 
-              <a href="https://archive.org/details/computerpowerhum0000weiz_v0i3"  target="_blank">„Computer Power and Human Reason. From Judgment to Calculation“</a> von Joseph Weizenbaum, 1976 – <em>Internet Archive</em><br> 
-              <a href="https://sites.google.com/view/elizagen-org/the-original-eliza" target="_blank">Code zu ELIZA von Joseph Weizenbaum</a> aus dem Jahr 1966 mit weiterführenden Informationen – <em>Jeff Shrager; MIT Libraries</em><br> 
-              <a href="https://academic.oup.com/mind/article-pdf/LIX/236/433/9866119/433.pdf"  target="_blank">„Computing Machinery and Intelligence“</a> von Alan Turing, 1950 – <em>Mind, A quarterly review of Psychology and Philosophy</em><br> 
+              <a href="https://www.projekt-gutenberg.org/knigge/umgang/umgang.html"  target="_blank">„Über den Umgang mit Menschen“</a> von Adolph Freiherr von Knigge, 1788 – <em>Projekt Gutenberg</em><br>
+              <a href="https://archive.org/details/computerpowerhum0000weiz_v0i3"  target="_blank">„Computer Power and Human Reason. From Judgment to Calculation“</a> von Joseph Weizenbaum, 1976 – <em>Internet Archive</em><br>
+              <a href="https://sites.google.com/view/elizagen-org/the-original-eliza" target="_blank">Code zu ELIZA von Joseph Weizenbaum</a> aus dem Jahr 1966 mit weiterführenden Informationen – <em>Jeff Shrager; MIT Libraries</em><br>
+              <a href="https://academic.oup.com/mind/article-pdf/LIX/236/433/9866119/433.pdf"  target="_blank">„Computing Machinery and Intelligence“</a> von Alan Turing, 1950 – <em>Mind, A quarterly review of Psychology and Philosophy</em><br>
               <a href="media/melanie_haberl-mit_vergnuegen.pdf" target="_blank">Mit Vergnügen: Das „gute“ Gespräch als Spiel. Unterhaltung durch und mit Chatbots</a> von Melanie Haberl, 2023<br>
               <a href="https://github.com/StudioProcess/eliza-js" target="_blank">Code für Knigge auf Basis von ELIZA</a> mit Dokumentation auf Github – <em>Process Studio</em><br>
-              <a href="https://islandrabe.com/projekte/zwischenmenschen/" target="_blank">Projektseite „Was ist zwischen den Menschen“</a> – <em>islandrabe</em><br> 
+              <a href="https://islandrabe.com/projekte/zwischenmenschen/" target="_blank">Projektseite „Was ist zwischen den Menschen“</a> – <em>islandrabe</em><br>
             </p>
           </b-col>
         </b-row>
@@ -211,9 +211,9 @@
           </b-col>
           <b-col lg="8">
             <p>
-              <a href="media/2022_04_09-tt.pdf" target="_blank">"Chatten übers Reden"</a>, <em>Tiroler Tageszeitung (09.04.2022)</em><br> 
-              <a href="media/2022_04_21-krone.pdf" target="_blank">"Menschliche und unmenschliche Kommunikation"</a>, <em>Tiroler Kronenzeitung (21.04.2022)</em><br> 
-              <a href="https://www.meinbezirk.at/kufstein/c-lokales/kufsteiner-medienkuenstler-untersucht-kommunikation_a5304952" target="_blank">"Kufsteiner Medienkünstler untersucht Kommunikation"</a>, <em>meinbezirk.at (27.04.2022)</em><br> 
+              <a href="media/2022_04_09-tt.pdf" target="_blank">"Chatten übers Reden"</a>, <em>Tiroler Tageszeitung (09.04.2022)</em><br>
+              <a href="media/2022_04_21-krone.pdf" target="_blank">"Menschliche und unmenschliche Kommunikation"</a>, <em>Tiroler Kronenzeitung (21.04.2022)</em><br>
+              <a href="https://www.meinbezirk.at/kufstein/c-lokales/kufsteiner-medienkuenstler-untersucht-kommunikation_a5304952" target="_blank">"Kufsteiner Medienkünstler untersucht Kommunikation"</a>, <em>meinbezirk.at (27.04.2022)</em><br>
               <a href="media/2022_04_27-kufsteinblick.pdf" target="_blank">"Chatbot Knigge: Ein 'gutes' Gespräch als Kunst"</a>, <em>Kufsteinblick (27.04.2022)</em><br>
             </p>
           </b-col>
@@ -275,7 +275,7 @@
         <b-row class="about-section-margin">
           <b-col lg="9">
             <p>
-              Für alles rund um das Chatten über’s Reden: 
+              Für alles rund um das Chatten über’s Reden:
             </p>
             <p><a href="mailto:brief@knigge.chat" rel="nofollow">brief@knigge.chat</a></p>
           </b-col>
@@ -508,6 +508,10 @@ export default {
       if (!this.recordingPopoverVisible && this.loggerSessionToken.length) {
         this.isRecording = !this.isRecording
         this.setRecordingStateCookie(this.isRecording)
+        if (this.userHasSentFirstMessage) {
+          // only log recording on/off, if user has sent at least one message
+          this.createLog('RECORDING ' + (this.isRecording ? 'ON' : 'OFF'), 'system', true)
+        }
       }
     },
     // Set recording state cookie
@@ -528,9 +532,15 @@ export default {
       })
     },
     // Log message
-    async createLog (message, origin) {
-      if (this.isRecording && this.loggerSessionToken.length && message) {
-        let url = `${this.apiUrl}/log?session=${this.loggerSessionToken}&message=${encodeURIComponent((origin === 'bot' ? 'bot: ' : 'you: ') + message)}`
+    async createLog (message, origin, force = false) {
+      if ((this.isRecording || force) && this.loggerSessionToken.length && message) {
+        let prefix = ''
+        if (origin === 'bot') {
+          prefix = 'bot: '
+        } else if (origin === 'user') {
+          prefix = 'you: '
+        }
+        let url = `${this.apiUrl}/log?session=${this.loggerSessionToken}&message=${encodeURIComponent(prefix + message)}`
         if (Array.isArray(message)) {
           url = `${this.apiUrl}/log?session=${this.loggerSessionToken}&messages=${JSON.stringify(message)}`
         }
