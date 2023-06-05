@@ -29,7 +29,7 @@
     "bootstrap": "^4.6.0",
     "bootstrap-vue": "^2.21.2",
     "core-js": "^3.15.1",
-    "eliza-js": "github:StudioProcess/eliza-js#abe8865",
+    "eliza-js": "StudioProcess/eliza-js#v4",
     "local-cors-proxy": "^1.1.0",
     "nuxt": "^2.15.8",
     "smoothscroll-polyfill": "^0.4.4",
