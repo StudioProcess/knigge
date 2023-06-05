@@ -1,7 +1,7 @@
 {
   "name": "studio_process_knigge",
   "author": "Laurent Lang <hello@laurentlang.com> (https://www.laurentlang.com)",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "private": true,
   "engines": {
     "node": "=14",
