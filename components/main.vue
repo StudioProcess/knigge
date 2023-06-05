@@ -479,6 +479,10 @@ export default {
     async sendUserMessage () {
       const userMessage = this.chatInput
       if (userMessage && this.userAllowedToChat) {
+        // immediately clear chat input and disable submit, so it can't be sent again
+        this.chatInput = ''
+        this.userAllowedToChat = false
+        this.showMessage(userMessage, 'user') // show message before blocking on logs
         if (this.userHasSentFirstMessage) {
           await this.createLog(userMessage, 'user')
         } else {
@@ -486,8 +490,6 @@ export default {
           this.userHasSentFirstMessage = true
           this.botInitialMessages = []
         }
-        this.showMessage(userMessage, 'user')
-        this.chatInput = ''
         if (!this.chatEnded) {
           await this.getReply(userMessage)
         }
