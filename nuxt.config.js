@@ -56,5 +56,6 @@ export default {
   router: {
     base: process.env.BASE_URL || '/'
   },
-  loading: false
+  loading: false,
+  telemetry: false,
 }
