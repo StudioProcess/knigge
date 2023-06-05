@@ -314,9 +314,9 @@ export default {
       isMobile: false,
       // Chatbot
       chatInput: '',
-      botTypingSpeed: [12, 18], // in characters per second
-      botMaxTypingTime: 6,
-      botResponseDelay: [1, 3], // delay before bot is starting to respond (ie. typing indicator is show)
+      botTypingSpeed: [15, 25], // in characters per second
+      botMaxTypingTime: 4,
+      botResponseDelay: [1, 2.5], // delay before bot is starting to respond (ie. typing indicator is show)
       botInitialMessages: [],
       userAllowedToChat: false,
       userHasSentFirstMessage: false,
